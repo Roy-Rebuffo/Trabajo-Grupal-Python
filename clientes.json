@@ -1,0 +1,11 @@
+{
+    "clientes":[{
+        "id":"",
+        "nombre":"",
+        "apellido":"",
+        "productos_comprados":["1","2","5"],
+        "is_ready":false
+    }]
+
+
+}
