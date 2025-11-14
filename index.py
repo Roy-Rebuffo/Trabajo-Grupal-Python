@@ -1,2 +1,0 @@
-#SOY EL PRIMER COMENTARIO DEL TRABAJO
-#fabian estuvo aqui
