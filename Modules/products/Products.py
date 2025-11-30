@@ -12,11 +12,8 @@ try:
             nom = input('Escriba el nombre del producto: ')
             cant = input(f'Escriba la cantidad del producto (ml,l,..): ')
             marca = input(f'Escriba marca: ')
-
             registro = f"{nom};{cant};{marca}\n"
-
             fich.write(registro)
-
             lista.append(registro)
 
 except FileNotFoundError as error:
