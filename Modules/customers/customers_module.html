@@ -8,8 +8,18 @@
     <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
+    <div id="navbar"></div>
+
+<script>
+    fetch("../navbar.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("navbar").innerHTML = data;
+        });
+</script>
+
     <h1>Customers</h1>
-    <a href=""><button>Añadir customer</button></a>
+    <a href="./crear_customers.html"><button>Añadir customer</button></a>
     <div class="customers_cont">
         <ul id="customerList"></ul>
     </div>

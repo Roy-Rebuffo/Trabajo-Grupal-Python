@@ -1,13 +1,28 @@
-let customerData = {"name":"","surname":"","age":0,"email":""};
+let customerData =  {
+        "name": "",
+        "surname": "",
+        "date": null,
+        "city": "",
+        "email": "",
+        "phone": null,
+        "active": false,
+        "pucharses_amount": 0,
+        "total_spent": 0.0,
+    }
 
 
 
 function collectCustomerData() {
     customerData.name = document.getElementById('name').value;
     customerData.surname = document.getElementById('surname').value;
-    customerData.age = parseInt(document.getElementById('age').value);
+    customerData.date = document.getElementById('date').value;
     customerData.email = document.getElementById('email').value;
+ customerData.city = document.getElementById('city').value;
+  customerData.phone = document.getElementById('phone').value;
+  customerData.active = document.getElementById('active').value;
+
 }
+  
 
 function SentData() {
     collectCustomerData();
@@ -26,6 +41,7 @@ window.addEventListener('pywebviewready', function () {
 },{once: true});
 
 function listarClientes() {
+  //Para cualquier modulo es lo mismo, solo cambiar el nombre del metodo y los datos que se muestran
     pywebview.api.customers_GetCustomers().then((data) => {
         let customerList = document.getElementById('customerList');
         customerList.innerHTML = '';
@@ -39,7 +55,7 @@ function listarClientes() {
                 <div class="customer-card">
                     <h3>${customer.name} ${customer.surname}</h3>
                     <div class="customer-details">
-                    <p><strong>Edad:</strong> ${customer.age}</p>
+                    <p><strong>Fecha de Nacimiento:</strong> ${customer.date}</p>
                     <p><strong>Ciudad:</strong> ${customer.city}</p>
                     <p><strong>Email:</strong> ${customer.email}</p>
                     <p><strong>Teléfono:</strong> ${customer.phone}</p>

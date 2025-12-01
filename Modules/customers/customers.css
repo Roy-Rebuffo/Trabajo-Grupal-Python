@@ -48,3 +48,7 @@
     width: 100%;
     text-align: left;
 }
+label {
+    font-weight: bold;
+   color: #222;
+}

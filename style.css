@@ -108,7 +108,7 @@
 
  h1 {
     font-size: 3rem;
-    font-weight: 800;
+    font-weight: 800;margin-top: 2rem;
     margin-bottom: 20px;
     line-height: 1.2;
     color: #0a3c93;
@@ -164,3 +164,5 @@ button:hover {
     width: 100%;
     left: 0;
 }
+
+
