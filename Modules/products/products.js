@@ -22,3 +22,23 @@ function SentData() {
     })
     .catch(err => console.error("ERROR al añadir producto:", err));
 }
+
+// Función para listar los productos (OBLIGATORIO 2)
+function ListProducts() {
+    pywebview.api.products_GetProducts()
+    .then(data => {
+        console.log("Lista de Productos:", data);
+        // Aquí deberías añadir lógica para mostrar 'data' en tu HTML
+    })
+    .catch(err => console.error("ERROR al listar productos:", err));
+}
+
+    // Función para obtener la estadística (OBLIGATORIO 3)
+// function GetStatistics() {
+//     pywebview.api.products_GetTopStocked(3) // Obtener los 3 con más stock
+//     .then(data => {
+//         console.log("Top 3 Productos con más Stock:", data);
+//         // Lógica para mostrar los resultados en HTML
+//     })
+//     .catch(err => console.error("ERROR al obtener estadísticas:", err));
+// }

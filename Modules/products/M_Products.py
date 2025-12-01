@@ -48,9 +48,6 @@ class M_Products:
         # 3. Llamar al NUEVO método AddOneDict, pasándole la clave y los datos por separado.
         Methods.AddOneDict(ARCHIVO_DATOS, new_id, product_data) 
         
-        # ESTO ES LO QUE ESTABA CAUSANDO EL ERROR 'AttributeError'
-        # Ahora que AddOneDict existe, ¡funcionará!
-
     # 2. LISTAR INFORMACIÓN (Obligatoria)
     def GetProducts(self) -> Dict[str, Any]:
         """Devuelve el diccionario completo de todos los productos."""
