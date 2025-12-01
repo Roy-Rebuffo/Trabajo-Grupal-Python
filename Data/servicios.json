@@ -1,0 +1,25 @@
+{
+    "S1": {
+        "name": "Corte de pelo",
+        "category": "Peluquería",
+        "price": 15.00,
+        "duration_minutes": 30,
+        "active": true
+    },
+
+    "S2": {
+        "name": "Tinte completo",
+        "category": "Coloración",
+        "price": 35.00,
+        "duration_minutes": 60,
+        "active": true
+    },
+
+    "S3": {
+        "name": "Peinado",
+        "category": "Estilismo",
+        "price": 20.00,
+        "duration_minutes": 40,
+        "active": true
+    }
+}
