@@ -1,20 +1,87 @@
 {
-    "ID2": {
-        "name": "Rafael",
-        "surname": "Gonz\u00e1lez",
-        "age": 30,
-        "city": "Madrid",
-        "email": "rafa@gmail.com ",
-        "phone": "600123456",
+    "ID4": {
+        "name": "Carlos",
+        "surname": "Fernandez",
+        "age": 35,
+        "city": "Valencia",
+        "email": "carlosf@gmail.com",
+        "phone": "611223344",
         "active": true,
-        "pucharses_amount": 5,
-        "total_spent": 250.75,
+        "pucharses_amount": 4,
+        "total_spent": 320.40,
         "pucharses": [
-            "P1",
-            "P2",
-            "P3",
-            "P4",
-            "P5"
+            "P9",
+            "P10",
+            "P11",
+            "P12"
+        ]
+    },
+    "ID5": {
+        "name": "Maria",
+        "surname": "Lopez",
+        "age": 42,
+        "city": "Sevilla",
+        "email": "marialopez@gmail.com",
+        "phone": "622998877",
+        "active": true,
+        "pucharses_amount": 7,
+        "total_spent": 540.20,
+        "pucharses": [
+            "P13",
+            "P14",
+            "P15",
+            "P16",
+            "P17",
+            "P18",
+            "P19"
+        ]
+    },
+    "ID6": {
+        "name": "Javier",
+        "surname": "Ruiz",
+        "age": 25,
+        "city": "Bilbao",
+        "email": "javi_ruiz@gmail.com",
+        "phone": "633445566",
+        "active": false,
+        "pucharses_amount": 2,
+        "total_spent": 89.99,
+        "pucharses": [
+            "P20",
+            "P21"
+        ]
+    },
+    "ID7": {
+        "name": "Ana",
+        "surname": "Santos",
+        "age": 33,
+        "city": "Zaragoza",
+        "email": "anasantos@gmail.com",
+        "phone": "644556677",
+        "active": true,
+        "pucharses_amount": 6,
+        "total_spent": 410.60,
+        "pucharses": [
+            "P22",
+            "P23",
+            "P24",
+            "P25",
+            "P26",
+            "P27"
+        ]
+    },
+    "ID8": {
+        "name": "Sergio",
+        "surname": "Castro",
+        "age": 29,
+        "city": "Malaga",
+        "email": "sergiocastro@gmail.com",
+        "phone": "655778899",
+        "active": false,
+        "pucharses_amount": 1,
+        "total_spent": 45.50,
+        "pucharses": [
+            "P28"
         ]
     }
 }

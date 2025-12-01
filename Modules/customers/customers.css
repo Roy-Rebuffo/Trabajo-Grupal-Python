@@ -8,3 +8,43 @@
     align-items: center;
     justify-content: center;
 }
+
+.customers_cont {
+    max-width: 900px;
+    margin: auto;
+}
+
+#customerList {
+    list-style: none;
+    padding: 0;
+}
+
+#customerList li {
+    margin-bottom: 15px;
+}
+
+.customer-card {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+    transition: 0.2s;
+}
+
+.customer-card:hover {
+    transform: scale(1.02);
+}
+
+.customer-card h3 {
+    margin-top: 0;
+    color: #222;
+}
+
+.customer-card p {
+    margin: 5px 0;
+    color: #555;
+}
+.customer-details{
+    width: 100%;
+    text-align: left;
+}
