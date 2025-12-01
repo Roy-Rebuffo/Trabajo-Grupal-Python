@@ -72,3 +72,23 @@ class Methods:
     def GetOneById(filepath, element_id):
         data = Methods.GetAll(filepath)
         return data.get(element_id, None)
+
+    @staticmethod
+    def AddOneDict(filepath, key_id, item_data):
+        """
+        Añade un ítem al archivo JSON, usando key_id (personalizada, ej. PR-0001) 
+        como la clave principal en el objeto JSON.
+        """
+        # 1. Cargar todos los datos existentes (usa tu propio GetAll)
+        data = Methods.GetAll(filepath)
+        
+        # 2. Insertar el nuevo ítem usando la clave proporcionada (key_id)
+        data[key_id] = item_data
+        
+        # 3. Guardar el diccionario completo de vuelta al archivo
+        try:
+            with open(filepath, 'w') as fich:
+                json.dump(data, fich, indent=4)
+                print(f"Elemento con ID {key_id} añadido correctamente.")
+        except Exception as error:
+            print("Error al guardar los datos:", error)
