@@ -76,7 +76,3 @@ class M_Products:
     # def DeleteProduct(self, product_id: int):
     #     """Elimina un producto por su ID."""
     #     Methods.Delete(ARCHIVO_DATOS, product_id)
-
-    # def AddProducts(self, products: List[Dict[str, Any]]):
-    #     """Añade múltiples productos."""
-    #     Methods.AddMany(ARCHIVO_DATOS, products)
