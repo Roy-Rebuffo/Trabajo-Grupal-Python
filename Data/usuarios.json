@@ -8,5 +8,25 @@
         "ciudad": "Sevilla",
         "fecha_contrato": "2025-11-26",
         "rol": "EMPLEADO"
+    },
+    {
+        "id_usuario": 2,
+        "nombre": "roy",
+        "apellido": "rebuffo",
+        "email": "roy34@gmail.com",
+        "telefono": "658741239",
+        "ciudad": "Madrid",
+        "fecha_contrato": "2025-11-05",
+        "rol": "EMPLEADO"
+    },
+    {
+        "id_usuario": 3,
+        "nombre": "Stalin",
+        "apellido": "Gonzales",
+        "email": "ssgonza@gmail.com",
+        "telefono": "456123741",
+        "ciudad": "Barcelona",
+        "fecha_contrato": "2025-10-08",
+        "rol": "EMPLEADO"
     }
 ]

@@ -1,5 +1,4 @@
-import tkinter as tk
-from tkinter import ttk, messagebox
+from tkinter import messagebox
 from datetime import datetime
 import json
 import os
@@ -14,7 +13,7 @@ PERMISOS = {
 # Ruta json
 ruta = "./Data/usuarios.json"
 
-class Usuario:
+class M_users:
     def __init__(self, id_usuario,nombre,apellido, email, telefono, ciudad,fecha_contrato,rol):
         self.id_usuario = id_usuario
         self.nombre = nombre
@@ -66,7 +65,7 @@ def cargar_usuarios():
 def guardar_usuario(usuario_dict):
     usuarios = cargar_usuarios()
     nuevo_id = len(usuarios) + 1
-    usuario = Usuario(id_usuario=nuevo_id, **usuario_dict)
+    usuario = M_users(id_usuario=nuevo_id, **usuario_dict)
     usuarios.append(usuario.to_dict())
 
     os.makedirs(os.path.dirname(ruta), exist_ok=True)
