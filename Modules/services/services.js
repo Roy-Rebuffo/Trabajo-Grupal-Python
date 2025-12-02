@@ -1,23 +1,30 @@
 let serviceData = {
-    "name": "",
-    "category": "",
-    "price": 0,
-    "duration_minutes": 0,
-    "active": false
+    name: "",
+    category: "",
+    price: 0,
+    duration_minutes: 0,
+    active: false
 };
 
 function collectServiceData() {
-    serviceData.name = document.getElementById('s_name').value;
-    serviceData.category = document.getElementById('s_category').value;
-    serviceData.price = parseFloat(document.getElementById('s_price').value);
-    serviceData.duration_minutes = parseInt(document.getElementById('s_duration').value);
-    serviceData.active = document.getElementById('s_active').checked;
+    return {
+        name: document.getElementById('s_name').value,
+        category: document.getElementById('s_category').value,
+        price: parseFloat(document.getElementById('s_price').value),
+        duration_minutes: parseInt(document.getElementById('s_duration').value),
+        active: document.getElementById('s_active').checked
+    };
 }
 
 function SendServiceData() {
-    
-    pywebview.api.service_getServices().then(data => console.log("OK:", data)).catch(err => console.error("ERROR:", err));
-        collectServiceData();
-        pywebview.api.service.collectServiceData(serviceData);
-}
 
+    const data = collectServiceData();
+
+    // DEBUG
+    console.log("Enviando:", data);
+
+    // Enviar a Python
+    pywebview.api.services_addService(data)
+        .then(() => console.log("Servicio añadido correctamente"))
+        .catch(err => console.error("ERROR:", err));
+}

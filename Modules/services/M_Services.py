@@ -17,4 +17,4 @@ class M_Services:
         Methods.Update("Data/servicios.json", service_id, new_data)
 
     def getServiceByID(self, service_id):
-        return Methods.GetByID("Data/servicios.json", service_id)
+        return Methods.GetOneById("Data/servicios.json", service_id)
