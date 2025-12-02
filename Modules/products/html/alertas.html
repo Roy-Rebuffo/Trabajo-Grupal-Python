@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../styles/share.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1 id="alerts-title">🔔 Alertas de Stock</h1>
+            <p>Configura o revisa las notificaciones de stock bajo y agotado.</p>
+        </header>
+
+        <button class="action-btn btn-back" onclick="window.location.href='index.html'">
+            <span class="btn-icon">⬅️</span> Volver al Dashboard
+        </button>
+
+        <div class="form-card alerts-card">
+            <h2>Umbral de Alerta</h2>
+            <form id="alerts-form">
+                <div class="form-group">
+                    <label for="alert-threshold">Definir Stock Mínimo para Alerta:</label>
+                    <input type="number" id="alert-threshold" name="threshold" min="1" value="10" required>
+                    <small>Se enviará una alerta cuando el stock de un producto caiga por debajo de este número.</small>
+                </div>
+                
+                <hr>
+                
+                <h2>Productos en Alerta</h2>
+                <div id="low-stock-list" class="alert-list">
+                    <p>No hay productos con bajo stock actualmente.</p>
+                    </div>
+                
+                <button type="submit" class="form-btn save-alerts-btn">💾 Guardar Configuración</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

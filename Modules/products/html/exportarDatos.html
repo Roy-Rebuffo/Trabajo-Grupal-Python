@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../styles/share.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1 id="export-title">📤 Exportar Datos</h1>
+            <p>Genera y descarga un archivo de inventario en formato CSV o JSON.</p>
+        </header>
+
+        <button class="action-btn btn-back" onclick="window.location.href='index.html'">
+            <span class="btn-icon">⬅️</span> Volver al Dashboard
+        </button>
+
+        <div class="form-card export-card">
+            <h2>Opciones de Exportación</h2>
+            <div class="form-group">
+                <label for="export-format">Formato de Archivo:</label>
+                <select id="export-format" name="format">
+                    <option value="csv">CSV (Comma Separated Values)</option>
+                    <option value="json">JSON</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="export-data">Datos a Incluir:</label>
+                <select id="export-data" name="data">
+                    <option value="all">Todo el Inventario</option>
+                    <option value="active">Solo Productos Activos</option>
+                    <option value="low-stock">Solo Productos con Bajo Stock</option>
+                </select>
+            </div>
+            
+            <button type="button" class="form-btn export-btn">⬇️ Descargar Archivo</button>
+        </div>
+    </div>
+</body>
+</html>

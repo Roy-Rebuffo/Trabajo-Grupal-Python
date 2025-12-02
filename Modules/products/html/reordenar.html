@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../styles/share.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1 id="reorder-title">⬆️ Reordenar Inventario</h1>
+            <p>Genera una lista de pedidos de reabastecimiento basada en las necesidades de stock.</p>
+        </header>
+
+        <button class="action-btn btn-back" onclick="window.location.href='index.html'">
+            <span class="btn-icon">⬅️</span> Volver al Dashboard
+        </button>
+
+        <div class="form-card reorder-card">
+            <h2>Generar Pedido de Reabastecimiento</h2>
+            <p>El sistema calculará automáticamente las cantidades a pedir para reabastecer el stock mínimo configurado.</p>
+            
+            <button type="button" class="form-btn generate-reorder-btn">📄 Generar Lista de Pedido</button>
+            
+            <hr>
+
+            <h2>Lista de Reabastecimiento Sugerida</h2>
+            <div id="reorder-list" class="reorder-list-display">
+                <p>Presiona el botón para generar la lista.</p>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

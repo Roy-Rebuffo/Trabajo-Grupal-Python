@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../styles/share.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1 id="discount-title">🏷️ Aplicar Descuento</h1>
+            <p>Aplica un porcentaje de descuento a uno o varios productos.</p>
+        </header>
+
+        <button class="action-btn btn-back" onclick="window.location.href='index.html'">
+            <span class="btn-icon">⬅️</span> Volver al Dashboard
+        </button>
+
+        <div class="form-card discount-card">
+            <h2>Configuración del Descuento</h2>
+            <form id="discount-form">
+                <div class="form-group">
+                    <label for="discount-percent">Porcentaje de Descuento (%):</label>
+                    <input type="number" id="discount-percent" name="percent" min="1" max="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="discount-scope">Aplicar a:</label>
+                    <select id="discount-scope" name="scope">
+                        <option value="single">Producto Específico (Buscar por ID)</option>
+                        <option value="category">Toda una Categoría</option>
+                        <option value="all">Todo el Inventario</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="form-btn discount-btn">💸 Aplicar Descuento</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

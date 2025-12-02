@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../styles/share.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1 id="archive-title">📦 Archivar Agotados</h1>
+            <p>Mueve todos los productos con stock cero a un inventario de artículos archivados.</p>
+        </header>
+
+        <button class="action-btn btn-back" onclick="window.location.href='index.html'">
+            <span class="btn-icon">⬅️</span> Volver al Dashboard
+        </button>
+
+        <div class="form-card archive-card">
+            <h2>Proceso de Archivación</h2>
+            <p>Se recomienda archivar los productos agotados para mantener limpia la lista de inventario activo.</p>
+            
+            <button type="button" class="form-btn archive-btn">📁 Confirmar Archivación de Agotados</button>
+            
+            <div class="info-box">
+                ℹ️ **Nota:** Solo se afectarán los productos con Stock = 0.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../styles/borrar.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1 id="delete-title">🗑️ Borrar Producto</h1>
+            <p>Elimina permanentemente un producto del inventario.</p>
+        </header>
+
+        <button class="action-btn btn-back" onclick="window.location.href='index.html'">
+            <span class="btn-icon">⬅️</span> Volver al Dashboard
+        </button>
+
+        <div class="form-card delete-product-card">
+            <h2>Confirmar Eliminación</h2>
+            <form id="delete-product-form">
+                <div class="form-group">
+                    <label for="delete-product-id">ID o Nombre del Producto a Eliminar:</label>
+                    <input type="text" id="delete-product-id" name="product-id" placeholder="Ej: Producto Antiguo o ID 456" required>
+                </div>
+                
+                <div class="warning-box">
+                    ⚠️ **Advertencia:** Esta acción no se puede deshacer. Asegúrate de que el ID es correcto.
+                </div>
+
+                <button type="submit" class="form-btn delete-btn">❌ Confirmar Eliminación</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
