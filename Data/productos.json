@@ -1,0 +1,23 @@
+{
+    "PR-0001": {
+        "name": "Kativa",
+        "description": "Alisador Pelo",
+        "price": 15.95,
+        "stock": 20,
+        "id": "PR-0001"
+    },
+    "PR-0002": {
+        "name": "Tinte SCH",
+        "description": "Tinte negro",
+        "price": 12.95,
+        "stock": 30,
+        "id": "PR-0002"
+    },
+    "PR-0003": {
+        "name": "Tinte Loreal",
+        "description": "Tinte Marr\u00f3n",
+        "price": 11.5,
+        "stock": 30,
+        "id": "PR-0003"
+    }
+}
