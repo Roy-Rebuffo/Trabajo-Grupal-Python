@@ -69,10 +69,6 @@ class M_Products:
         return sorted_products[:count]
     # --- Otras Funciones CRUD ---
     
-    # def GetProductById(self, product_id: int) -> Dict[str, Any]:
-    #     """Obtiene un producto específico por su ID."""
-    #     return Methods.GetOneById(ARCHIVO_DATOS, product_id)
-        
     # def UpdateProduct(self, product_id: int, new_data: Dict[str, Any]):
     #     """Actualiza los datos de un producto por su ID."""
     #     Methods.update(ARCHIVO_DATOS, product_id, new_data)
