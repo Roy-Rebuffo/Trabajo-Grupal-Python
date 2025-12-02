@@ -1,6 +1,7 @@
 # ---...---...---...---...---...---...---...---...---...---...---...---...---
 #
 #                    HOW TO BUILD THIS APPLICATION
+#⚠️Esto se hace solo al final , una vez de  que la aplicación está terminada con todos los modulos, no hacer⚠️
 #
 # 1. SETUP & INSTALLATION:
 #    Open your terminal or command prompt and install the necessary libraries.
@@ -93,7 +94,7 @@ class Api:
         print(f"Python is calling JavaScript with: '{message_from_python}'")
         # Call the 'updateMessage' JavaScript function
         # The `evaluate_js` method is used to execute JavaScript code in the webview
-        self.window.evaluate_js(f"updateMessage('{message_from_python}')")
+        #self.window.evaluate_js(f"updateMessage('{message_from_python}')")
         
 
 def resource_path(relative_path):

@@ -1,98 +1,93 @@
 {
-    "ID4": {
-        "name": "Carlos",
-        "surname": "Fernandez",
-        "age": 35,
-        "city": "Valencia",
-        "email": "carlosf@gmail.com",
-        "phone": "611223344",
-        "active": true,
-        "pucharses_amount": 4,
-        "total_spent": 320.4,
-        "pucharses": [
-            "P9",
-            "P10",
-            "P11",
-            "P12"
-        ]
-    },
-    "ID5": {
-        "name": "Maria",
-        "surname": "Lopez",
-        "age": 42,
-        "city": "Sevilla",
-        "email": "marialopez@gmail.com",
-        "phone": "622998877",
-        "active": true,
-        "pucharses_amount": 7,
-        "total_spent": 540.2,
-        "pucharses": [
-            "P13",
-            "P14",
-            "P15",
-            "P16",
-            "P17",
-            "P18",
-            "P19"
-        ]
-    },
-    "ID6": {
-        "name": "Javier",
-        "surname": "Ruiz",
-        "age": 25,
-        "city": "Bilbao",
-        "email": "javi_ruiz@gmail.com",
-        "phone": "633445566",
-        "active": false,
-        "pucharses_amount": 2,
-        "total_spent": 89.99,
-        "pucharses": [
-            "P20",
-            "P21"
-        ]
-    },
-    "ID7": {
-        "name": "Ana",
-        "surname": "Santos",
-        "age": 33,
-        "city": "Zaragoza",
-        "email": "anasantos@gmail.com",
-        "phone": "644556677",
-        "active": true,
-        "pucharses_amount": 6,
-        "total_spent": 410.6,
-        "pucharses": [
-            "P22",
-            "P23",
-            "P24",
-            "P25",
-            "P26",
-            "P27"
-        ]
-    },
-    "ID8": {
-        "name": "Sergio",
-        "surname": "Castro",
-        "age": 29,
-        "city": "Malaga",
-        "email": "sergiocastro@gmail.com",
-        "phone": "655778899",
-        "active": false,
-        "pucharses_amount": 1,
-        "total_spent": 45.5,
-        "pucharses": [
-            "P28"
-        ]
-    },
-    "719d5e3a-3939-4188-b69c-9ce1d5df9e7a": {
-        "name": "Fabian",
-        "surname": "Luna",
-        "date": "2006/04/05",
-        "city": "Lima",
-        "email": "fabian@gmail.com",
-        "phone": "123452123",
-        "active": "on",
-        "pucharses_amount": 0,
-        "total_spent": 0
-    }
+  "ID4": {
+    "name": "Carlos",
+    "surname": "Fernandez",
+    "date": "1988-01-01",
+    "age": 35,
+    "city": "Valencia",
+    "email": "carlosf@gmail.com",
+    "phone": "611223344",
+    "active": true,
+    "pucharses_amount": 4,
+    "total_spent": 320.4,
+    "pucharses": ["P9","P10","P11","P12"]
+  },
+  "ID5": {
+    "name": "Maria",
+    "surname": "Lopez",
+    "date": "1981-01-01",
+    "age": 42,
+    "city": "Sevilla",
+    "email": "marialopez@gmail.com",
+    "phone": "622998877",
+    "active": true,
+    "pucharses_amount": 7,
+    "total_spent": 540.2,
+    "pucharses": ["P13","P14","P15","P16","P17","P18","P19"]
+  },
+  "ID6": {
+    "name": "Javier",
+    "surname": "Ruiz",
+    "date": "1998-01-01",
+    "age": 25,
+    "city": "Sevilla",
+    "email": "javi_ruiz@gmail.com",
+    "phone": "633445566",
+    "active": false,
+    "pucharses_amount": 2,
+    "total_spent": 89.99,
+    "pucharses": ["P20","P21"]
+  },
+  "ID7": {
+    "name": "Ana",
+    "surname": "Santos",
+    "date": "1990-01-01",
+    "age": 33,
+    "city": "Zaragoza",
+    "email": "anasantos@gmail.com",
+    "phone": "644556677",
+    "active": true,
+    "pucharses_amount": 6,
+    "total_spent": 410.6,
+    "pucharses": ["P22","P23","P24","P25","P26","P27"]
+  },
+  "ID8": {
+    "name": "Sergio",
+    "surname": "Castro",
+    "date": "1994-01-01",
+    "age": 29,
+    "city": "Sevilla",
+    "email": "sergiocastro@gmail.com",
+    "phone": "655778899",
+    "active": false,
+    "pucharses_amount": 1,
+    "total_spent": 45.5,
+    "pucharses": ["P28"]
+  },
+  "719d5e3a-3939-4188-b69c-9ce1d5df9e7a": {
+    "name": "Fabian",
+    "surname": "Luna",
+    "date": "2006-04-05",
+    "age": 19,
+    "city": "Lima",
+    "email": "fabian@gmail.com",
+    "phone": "123452123",
+    "active": false,
+    "pucharses_amount": 0,
+    "total_spent": 0,
+    "pucharses": []
+  },
+  "ef201f5a-2290-4425-b2b5-9d806873ea18": {
+    "name": "Roy",
+    "surname": "Rebuffo",
+    "date": "1998-07-17",
+    "age": 25,
+    "city": "Valencia",
+    "email": "roy@gmail.com",
+    "phone": "16453357",
+    "active": true,
+    "pucharses_amount": 0,
+    "total_spent": 0,
+    "pucharses": []
+  }
 }

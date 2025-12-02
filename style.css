@@ -108,11 +108,12 @@
 
  h1 {
     font-size: 3rem;
-    font-weight: 800;margin-top: 2rem;
+    font-weight: 800;
     margin-bottom: 20px;
     line-height: 1.2;
     color: #0a3c93;
 }
+h1:not(.logo){margin-top: 6rem}
 
 
 button {

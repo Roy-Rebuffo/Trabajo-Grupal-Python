@@ -1,5 +1,5 @@
-
-.from-group {
+/* ===== FORM GROUP ===== */
+.form-group {
     margin-bottom: 15px;
     text-align: left;
     display: flex;
@@ -9,11 +9,13 @@
     justify-content: center;
 }
 
+/* ===== CONTAINER GENERAL ===== */
 .customers_cont {
     max-width: 900px;
     margin: auto;
 }
 
+/* ===== LISTA DE CLIENTES ===== */
 #customerList {
     list-style: none;
     padding: 0;
@@ -23,6 +25,7 @@
     margin-bottom: 15px;
 }
 
+/* ===== TARJETAS ----- */
 .customer-card {
     background: white;
     padding: 15px 20px;
@@ -44,11 +47,50 @@
     margin: 5px 0;
     color: #555;
 }
-.customer-details{
+
+.customer-details {
     width: 100%;
     text-align: left;
 }
+
+/* ===== LABELS ===== */
 label {
     font-weight: bold;
-   color: #222;
+    color: #222;
+    font-size: 15px;
+}
+
+/* ===== PARÁMETROS DE ORDENAMIENTO ===== */
+.customer_sort_parameters {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente todos los elementos */
+    gap: 20px; /* Espacio entre cada elemento */
+    margin-top: 20px;
+    justify-content: center;
+}
+
+/* Cada contenedor ocupa 70% en escritorio y 100% en móvil */
+.order_container_options {
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre los checkboxes */
+    padding: 10px;
+    background-color: #d5e8ff;
+}
+
+/* Cada label dentro de order_container_options se separa verticalmente */
+.order_container_options label {
+    margin-top: 5px;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 600px) {
+    .order_container_options {
+        width: 100%;
+        justify-content: flex-start; /* Opcional: alinearlos a la izquierda en móvil */
+    }
 }

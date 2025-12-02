@@ -1,29 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./customers.css">
-    <link rel="stylesheet" href="../../style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./customers.css" />
+    <link rel="stylesheet" href="../../style.css" />
+  </head>
+  <body>
     <div id="navbar"></div>
 
-<script>
-    fetch("../navbar.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("navbar").innerHTML = data;
+    <script>
+      fetch("../navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
         });
-</script>
+    </script>
 
     <h1>Customers</h1>
     <a href="./crear_customers.html"><button>Añadir customer</button></a>
-    <div class="customers_cont">
-        <ul id="customerList"></ul>
-    </div>
+    
+    <div class="customer_sort_parameters">
+      <label for="">Ordenar por (puedes elegir varios):</label>
 
-</body>
-<script src="./customers.js"></script>
+      <div class="order_container_options">
+        <label><input type="checkbox" name="order" value="name" /> Nombre</label
+        ><br />
+        <label
+          ><input type="checkbox" name="order" value="surname" />
+          Apellido</label
+        ><br />
+        <label><input type="checkbox" name="order" value="date" /> Fecha</label
+        ><br />
+        <label><input type="checkbox" name="order" value="city" /> Ciudad</label
+        ><br />
+        <label
+          ><input type="checkbox" name="order" value="pucharses_amount" />
+          Cantidad compras</label
+        ><br />
+        <label
+          ><input type="checkbox" name="order" value="total_spent" /> Gasto
+          total</label
+        ><br />
+      </div>
+
+      <label for="">Ascendente:
+        <input type="checkbox" id="orderDirection" />
+        </label>
+      
+
+      <label for="">
+        Agrupar por:
+          <select id="groupBy">
+        <option value="">-- Sin agrupar --</option>
+        <option value="city">Ciudad</option>
+        <option value="active">Activo</option>
+      </select>
+        </label>
+      <button onclick="processCustomerData()">Procesar</button>
+    </div>
+    <div class="customers_cont">
+      <ul id="customerList"></ul>
+    </div>
+  </body>
+  <script src="./customers.js"></script>
 </html>

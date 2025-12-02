@@ -5,7 +5,7 @@ async function callPython() {
     // Access the 'pywebview' object which bridges JS and Python
     // 'pywebview.api' exposes the Python functions defined in the API
     const response = await pywebview.api.say_hello_from_python('JavaScript');
-    document.getElementById('message').innerText = response;
+   console.log(response);
 }
 
 // When the window is loaded, expose the JavaScript function to Python
