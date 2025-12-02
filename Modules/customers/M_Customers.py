@@ -1,7 +1,7 @@
 import operator
 from datetime import datetime
 import pprint
-from CRUD import Methods
+from Functions.CRUD import Methods
 from collections import defaultdict
 
 OPERADORES = {

@@ -39,7 +39,7 @@ function processCustomerData() {
     const groupBy = document.getElementById("groupBy").value;
 
     // Llamada al backend con PyWebView
-    pywebview.api.customers_get_sorted_and_grouped_customers(original_customers, orderDir, orderBy, groupBy)
+    pywebview.api.customers_Get_sorted_and_grouped_customers(original_customers, orderDir, orderBy, groupBy)
         .then((data) => {
             customers = data; // actualizar variable global con los datos procesados
             RefrescarClientes(); // refrescar UL con los datos

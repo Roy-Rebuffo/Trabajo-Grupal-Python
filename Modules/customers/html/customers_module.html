@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./customers.css" />
-    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../css/customers.css" />
+    <link rel="stylesheet" href="../../../style.css" />
   </head>
   <body>
     <div id="navbar"></div>
 
     <script>
-      fetch("../navbar.html")
+      fetch("../../navbar.html")
         .then((response) => response.text())
         .then((data) => {
           document.getElementById("navbar").innerHTML = data;
@@ -64,5 +64,5 @@
       <ul id="customerList"></ul>
     </div>
   </body>
-  <script src="./customers.js"></script>
+  <script src="../js/customers.js"></script>
 </html>

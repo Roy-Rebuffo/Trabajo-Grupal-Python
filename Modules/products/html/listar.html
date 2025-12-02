@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
+    
+    <link rel="stylesheet" href="../styles/listar.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1 id="list-title">📋 Inventario de Productos</h1>
+            <p>Lista detallada de todos los artículos en stock.</p>
+        </header>
+
+        <button class="action-btn btn-back" onclick="window.location.href='products_module.html'">
+            <span class="btn-icon">⬅️</span> 
+            <span class="btn-text">Volver al Dashboard</span>
+        </button>
+
+        <div class="table-card product-list-card">
+            <div class="product-table-responsive">
+                <table class="product-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre del Producto</th>
+                            <th>Categoría</th>
+                            <th>Stock</th>
+                            <th>Precio</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="product-list-body">
+                        <tr>
+                            <td colspan="7" class="loading-message">Cargando productos...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script-productos.js"></script>
+</body>
+</html>
