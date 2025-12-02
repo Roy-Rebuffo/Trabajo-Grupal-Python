@@ -1,0 +1,12 @@
+[
+    {
+        "id_usuario": 1,
+        "nombre": "Enrique",
+        "apellido": "Diaz",
+        "email": "enrdiaz@gmail.com",
+        "telefono": "654789123",
+        "ciudad": "Sevilla",
+        "fecha_contrato": "2025-11-26",
+        "rol": "EMPLEADO"
+    }
+]
