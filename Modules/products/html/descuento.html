@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicar Descuento</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../styles/share.css">
+    <style>
+        /* Estilo para el campo que cambia dinámicamente */
+        .scope-detail-group {
+            transition: all 0.3s ease;
+        }
+
+        .form-message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .message-success {
+            background-color: #e6f7d4;
+            color: #52c41a;
+            border: 1px solid #b7eb8f;
+        }
+
+        .message-error {
+            background-color: #fff1f0;
+            color: #f5222d;
+            border: 1px solid #ffa39e;
+        }
+
+        .message-info {
+            background-color: #e6f7ff;
+            color: #1890ff;
+            border: 1px solid #91d5ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1 id="discount-title">🏷️ Aplicar Descuento</h1>
+            <p>Aplica un porcentaje de descuento a uno o varios productos.</p>
+        </header>
+
+        <button class="action-btn btn-back" onclick="window.location.href='landing.html'">
+            <span class="btn-icon">⬅️</span> Volver al Dashboard
+        </button>
+
+        <div class="form-card discount-card">
+            <h2>Configuración del Descuento</h2>
+            <form id="discount-form">
+                <div class="form-group">
+                    <label for="discount-percent">Porcentaje de Descuento (%):</label>
+                    <input type="number" id="discount-percent" name="percent" min="1" max="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="discount-scope">Aplicar a:</label>
+                    <!-- CAMBIO CLAVE: Llama a la función JS para mostrar/ocultar campos -->
+                    <select id="discount-scope" name="scope" onchange="toggleScopeInput()">
+                        <option value="single">Producto Específico (Buscar por ID)</option>
+                        <option value="category">Toda una Categoría</option>
+                        <option value="all">Todo el Inventario</option>
+                    </select>
+                </div>
+
+                <!-- Contenedor dinámico para el valor del alcance -->
+                <div id="scope-input-container">
+                    <div class="form-group scope-detail-group">
+                        <label for="scope-value-input" id="scope-value-label">ID del Producto:</label>
+                        <input type="text" id="scope-value-input" name="scope_value" required placeholder="Ej: PR-0001">
+                    </div>
+                </div>
+
+                <div id="message-display" class="form-message message-info" style="display: none;"></div>
+
+                <button type="submit" class="form-btn discount-btn">💸 Aplicar Descuento</button>
+            </form>
+        </div>
+    </div>
+</body>
+<!-- Añadimos el script de descuento -->
+<script src="../js/descuento.js"></script>
+
+</html>

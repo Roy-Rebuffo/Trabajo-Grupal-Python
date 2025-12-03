@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/facturas_style.css">
+    <title>Document</title>
+</head>
+<body>
+  <h1>Generar Factura</h1>
+  <form id="facturaForm">
+  <label>Número de factura:</label>
+  <input type="text" id="numero" required>
+
+  <label>ID Cliente:</label>
+  <select id="clienteSelect"></select><br>
+
+
+  <h3>Seleccionar producto</h3>
+  <select id="productoSelect"></select>
+  <input type="number" id="cantidad" value="1" min="1">
+  <button type="button" id="addLinea">Añadir producto</button>
+
+  <h3>Productos añadidos</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+        <th>Importe</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody id="productosBody"></tbody>
+  </table>
+
+  <button class="env" type="submit">Generar Factura</button>
+</form>
+
+<pre id="resultado"></pre>
+
+</body>
+<!-- JS externo -->
+<script src="../js/facturas_script.js"></script>
+</html>

@@ -1,0 +1,62 @@
+/* --- Estilos compartidos para las tarjetas de información --- */
+
+.info-box {
+    background-color: #eff6ff; /* Azul claro */
+    color: #1d4ed8;
+    border: 1px solid #93c5fd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+
+/* --- Estilos Específicos para Módulos --- */
+
+.archive-card .archive-btn {
+    background-color: #166534; /* Verde Oscuro */
+    color: white;
+    width: 100%;
+}
+.archive-card .archive-btn:hover { background-color: #14532d; }
+
+.discount-card .discount-btn {
+    background-color: #9333ea; /* Púrpura */
+    color: white;
+    width: 100%;
+}
+.discount-card .discount-btn:hover { background-color: #7e22ce; }
+
+.export-card .export-btn {
+    background-color: #fcd34d; /* Amarillo */
+    color: #1f2937;
+    width: 100%;
+}
+.export-card .export-btn:hover { background-color: #fbbd23; }
+
+.alerts-card small {
+    display: block;
+    margin-top: 5px;
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+.alerts-card .save-alerts-btn {
+    background-color: #3b82f6;
+    color: white;
+    width: 100%;
+}
+
+.reorder-card .generate-reorder-btn {
+    background-color: #06b6d4; /* Cian */
+    color: white;
+    width: 100%;
+}
+.reorder-card .generate-reorder-btn:hover { background-color: #0891b2; }
+
+.reorder-list-display {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9fafb;
+    min-height: 100px;
+}

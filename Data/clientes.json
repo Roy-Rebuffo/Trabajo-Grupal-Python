@@ -1,5 +1,25 @@
 {
-  "ID4": {
+
+    "ID2": {
+        "name": "Rafael",
+        "surname": "Gonz\u00e1lez",
+        "age": 30,
+        "city": "Madrid",
+        "email": "rafa@gmail.com ",
+        "phone": "600123456",
+        "active": true,
+        "pucharses_amount": 5,
+        "total_spent": 250.75,
+        "pucharses": [
+            "P1",
+            "P2",
+            "P3",
+            "P4",
+            "P5"
+        ]
+    },
+
+    "ID4": {
     "name": "Carlos",
     "surname": "Fernandez",
     "date": "1988-01-01",
@@ -90,4 +110,7 @@
     "total_spent": 0,
     "pucharses": []
   }
+    
 }
+
+
