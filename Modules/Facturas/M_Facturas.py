@@ -2,15 +2,12 @@ import json
 import os
 from datetime import datetime
 from decimal import Decimal, ROUND_HALF_UP
-from Generar_Facturas import Generar_Factura
+from .Generar_Facturas import Generar_Factura
 
 
 #Ruta tanto de clientes como de productos
-ruta_clientes = "./Data/clientes.json"
-ruta_productos = "./Data/productos.json"
-
 class M_Facturas:
-    def __init__(self, ruta_clientes, ruta_productos):
+    def __init__(self, ruta_clientes= "./Data/clientes.json", ruta_productos= "./Data/productos.json"):
         self.ruta_clientes = ruta_clientes
         self.ruta_productos = ruta_productos
         self._clientes = None

@@ -14,7 +14,7 @@ PERMISOS = {
 ruta = "./Data/usuarios.json"
 
 class M_users:
-    def __init__(self, id_usuario,nombre,apellido, email, telefono, ciudad,fecha_contrato,rol):
+    def __init__(self, id_usuario=None,nombre="",apellido="", email="", telefono="", ciudad="",fecha_contrato=None,rol="EMPLEADO"):
         self.id_usuario = id_usuario
         self.nombre = nombre
         self.apellido = apellido
