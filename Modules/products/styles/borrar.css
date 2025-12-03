@@ -1,0 +1,18 @@
+/* --- Estilos para Borrar Producto --- */
+
+.delete-product-card .delete-btn {
+    background-color: #ef4444; /* Rojo */
+    color: white;
+    width: 100%;
+}
+.delete-product-card .delete-btn:hover { background-color: #dc2626; }
+
+.warning-box {
+    background-color: #fef2f2;
+    color: #ef4444;
+    border: 1px solid #fca5a5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}

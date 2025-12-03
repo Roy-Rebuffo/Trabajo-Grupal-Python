@@ -1,0 +1,8 @@
+/* --- Estilos para Añadir Producto --- */
+
+.add-product-card .add-btn {
+    background-color: #10b981; /* Verde esmeralda */
+    color: white;
+    width: 100%;
+}
+.add-product-card .add-btn:hover { background-color: #059669; }
