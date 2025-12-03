@@ -146,7 +146,7 @@ class M_Products:
 
         return updated_count
     
-    # 7. OBTENER TODOS COMO LISTA (NUEVO MÉTODO PARA EXPORTACIÓN)
+    # 8. OBTENER TODOS COMO LISTA (NUEVO MÉTODO PARA EXPORTACIÓN)
     def GetAllProductsAsList(self) -> List[Dict[str, Any]]:
         """
         Devuelve todos los productos como una lista de diccionarios (valores), 
@@ -158,9 +158,8 @@ class M_Products:
         # 2. Devolver solo los valores (los datos de los productos sin la clave ID)
         # Esto genera la lista que tu JS necesita para el CSV/JSON.
         return list(all_products.values())
-    # ... (El resto de tu clase M_Products)
-
-    # 8. GUARDAR ARCHIVO (NUEVO MÉTODO PARA EXPORTACIÓN DIRECTA)
+    
+    # 9. GUARDAR ARCHIVO (NUEVO MÉTODO PARA EXPORTACIÓN DIRECTA)
     def SaveFileToDisk(self, content: str, filename: str) -> bool:
         """
         Guarda el contenido de un archivo (CSV/JSON) en la carpeta de Descargas del usuario.
@@ -186,7 +185,7 @@ class M_Products:
             print(f"ERROR: No se pudo guardar el archivo '{filename}'. Detalle: {e}")
             return False
     
-    # 9. ARCHIVAR AGOTADOS (MÉTODO CORREGIDO)
+    # 10. ARCHIVAR AGOTADOS (MÉTODO CORREGIDO)
     def ArchiveZeroStock(self) -> int:
         """
         Mueve todos los productos con stock cero (0) de productos.json a productos_sin_stock.json.
@@ -228,7 +227,8 @@ class M_Products:
             # En caso de error al guardar en el archivo de archivados (ej. archivo no existe o permisos)
             print(f"ERROR CRÍTICO durante la archivación: {e}")
             return -1
-    # 10. LISTAR POR STOCK BAJO (NUEVO MÉTODO)
+            
+    # 11. LISTAR POR STOCK BAJO (NUEVO MÉTODO)
     def GetLowStockItems(self, threshold: int) -> List[Dict[str, Any]]:
         """
         Devuelve una lista de productos cuyo stock es igual o menor al umbral dado.
@@ -262,3 +262,63 @@ class M_Products:
         )
         
         return sorted_list
+    
+    # 12. OBTENER TOP STOCK (MÉTODO REQUERIDO POR JS)
+    def GetTopStocked(self, count: int) -> List[Dict[str, Any]]:
+        """
+        Devuelve los 'count' productos con el stock más alto, ordenados de MAYOR a MENOR.
+        """
+        all_products: Dict[str, Any] = Methods.GetAll(ARCHIVO_DATOS)
+        products_list = list(all_products.values())
+        
+        # Ordenar por el campo 'stock' de forma descendente (MAYOR a MENOR)
+        sorted_products = sorted(
+            products_list, 
+            key=lambda p: p.get('stock', 0), 
+            reverse=True 
+        )
+        # Devolver solo los 'count' primeros
+        return sorted_products[:count]
+    
+    # 13. OBTENER KPIs
+    def GetKpis(self) -> dict:
+        """Devuelve KPIs: total products, total stock, average price."""
+        all_products = self.GetProducts()
+        products_list = list(all_products.values())
+    
+        total_products = len(products_list)
+        total_stock = sum(p.get("stock", 0) for p in products_list)
+        
+        total_price = sum(p.get("price", 0) for p in products_list)
+        average_price = round(total_price / total_products, 2) if total_products > 0 else 0
+    
+        return {
+            "total_products": total_products,
+            "total_stock": total_stock,
+            "average_price": average_price
+        }
+
+    # 14. OBTENER DISTRIBUCIÓN DE PRECIOS
+    def GetPriceDistribution(self) -> dict:
+        """Devuelve conteo de productos según rango de precio: low, medium, high."""
+        all_products = self.GetProducts()
+        low = medium = high = 0
+        for p in all_products.values():
+            price = p.get("price", 0)
+            if 0 <= price <= 5:
+                low += 1
+            elif 6 <= price <= 15:
+                medium += 1
+            else:  # 16+
+                high += 1
+        return {"low": low, "medium": medium, "high": high}
+
+    # 15. OBTENER ÚLTIMO PRODUCTO
+    def GetLatestProduct(self) -> dict:
+        """Devuelve el último producto añadido (el de ID más alto)."""
+        all_products = self.GetProducts()
+        if not all_products:
+            return {}
+        # Asume que el ID más alto es el último. Ordena las claves alfabéticamente (PR-0001 < PR-0002)
+        latest_id = sorted(all_products.keys(), reverse=True)[0]
+        return all_products[latest_id]
