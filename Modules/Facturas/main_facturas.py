@@ -11,4 +11,4 @@ api = Api(ruta_clientes, ruta_productos)
 
 # Crear ventana Webview
 window = webview.create_window("Generador de Facturas", "./facturas.html", js_api=api)
-webview.start(debug=True, http_server=False, gui='edgechromium')
+webview.start(http_server=False, gui='edgechromium')
