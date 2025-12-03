@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../styles/añadir.css">
 </head>
+
 <body>
     <div class="dashboard-container">
         <header class="dashboard-header">
@@ -26,25 +27,23 @@
                     <input type="text" id="new-name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="new-category">Categoría:</label>
-                    <input type="text" id="new-category" name="category" placeholder="Ej: Electrónica, Oficina, Ropa" required>
+                    <label for="new-description">Descripción</label>
+                    <input type="text" id="new-desc" name="desc" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-price">Precio:</label>
+                    <input type="number" id="new-price" name="price" min="0.01" step="0.01" required>
                 </div>
                 <div class="form-group">
                     <label for="new-stock">Stock Inicial:</label>
                     <input type="number" id="new-stock" name="stock" min="1" value="1" required>
                 </div>
-                <div class="form-group">
-                    <label for="new-price">Precio Unitario:</label>
-                    <input type="number" id="new-price" name="price" min="0.01" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label for="new-description">Descripción (Opcional):</label>
-                    <textarea id="new-description" name="description" rows="3"></textarea>
-                </div>
-
-                <button type="submit" class="form-btn add-btn">✅ Registrar Producto</button>
+                <button type="button" onclick="SentData()" class="btn-registrar-producto add-btn">
+                    ✅ Registrar Producto
+                </button>
             </form>
         </div>
     </div>
 </body>
+<script src="../js/products_add.js"></script>
 </html>

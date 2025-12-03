@@ -9,15 +9,15 @@
     "PR-0002": {
         "name": "Tinte SCH",
         "description": "Tinte negro",
-        "price": 12.95,
+        "price": 11.01,
         "stock": 30,
         "id": "PR-0002"
     },
     "PR-0003": {
         "name": "Tinte Loreal",
         "description": "Tinte Marr\u00f3n",
-        "price": 11.5,
-        "stock": 30,
+        "price": 12.5,
+        "stock": 25,
         "id": "PR-0003"
     }
 }

@@ -22,9 +22,9 @@
             <h2>Buscar y Modificar</h2>
             <form id="update-product-form">
                 <div class="form-group">
-                    <label for="product-id">ID o Nombre del Producto a Actualizar:</label>
-                    <input type="text" id="product-id" name="product-id" placeholder="Ej: Laptop Pro o ID 123" required>
-                    <button type="button" class="form-btn search-btn">🔍 Buscar Producto</button>
+                    <label for="product-id">ID del Producto a Actualizar:</label>
+                    <input type="text" id="product-id" name="product-id" placeholder="Ej:PR-0003" required>
+                    <button type="button" onclick="SearchProduct()" class="form-btn search-btn">🔍 Buscar Producto</button>
                 </div>
                 
                 <hr>
@@ -39,9 +39,10 @@
                     <input type="number" id="product-price" name="price" value="0.00" min="0" step="0.01" required disabled>
                 </div>
 
-                <button type="submit" class="form-btn submit-btn" disabled>💾 Guardar Cambios</button>
+                <button type="button" onclick="UpdateProductData()" id="save-btn" class="form-btn submit-btn" disabled>💾 Guardar Cambios</button>
             </form>
         </div>
     </div>
 </body>
+<script src="../js/actualizar.js"></script>
 </html>

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exportar Datos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../styles/share.css">
 </head>
+
 <body>
     <div class="dashboard-container">
         <header class="dashboard-header">
@@ -35,9 +37,13 @@
                     <option value="low-stock">Solo Productos con Bajo Stock</option>
                 </select>
             </div>
-            
-            <button type="button" class="form-btn export-btn">⬇️ Descargar Archivo</button>
+
+            <!-- CAMBIO CLAVE: Añadimos el onclick -->
+            <button type="button" onclick="ExportData()" class="form-btn export-btn">⬇️ Descargar Archivo</button>
         </div>
     </div>
 </body>
+<!-- Añadimos el script de exportación -->
+<script src="../js/exportar.js"></script>
+
 </html>

@@ -3,15 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Alertas de Stock</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../styles/share.css">
+    <style>
+        /* Estilos básicos para la tabla de resultados */
+        .alert-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .alert-table th, .alert-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .alert-table th {
+            background-color: #f2f2f2;
+        }
+        .stock-cero {
+            background-color: #ffcccc; /* Rojo claro para stock cero */
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div class="dashboard-container">
         <header class="dashboard-header">
             <h1 id="alerts-title">🔔 Alertas de Stock</h1>
-            <p>Configura o revisa las notificaciones de stock bajo y agotado.</p>
+            <p>Introduce un umbral para listar todos los productos con stock igual o inferior.</p>
         </header>
 
         <button class="action-btn btn-back" onclick="window.location.href='products_module.html'">
@@ -19,24 +39,26 @@
         </button>
 
         <div class="form-card alerts-card">
-            <h2>Umbral de Alerta</h2>
-            <form id="alerts-form">
+            <h2>Umbral de Búsqueda</h2>
+            <form id="search-form"> 
                 <div class="form-group">
-                    <label for="alert-threshold">Definir Stock Mínimo para Alerta:</label>
-                    <input type="number" id="alert-threshold" name="threshold" min="1" value="10" required>
-                    <small>Se enviará una alerta cuando el stock de un producto caiga por debajo de este número.</small>
+                    <label for="alert-threshold">Stock Máximo a Mostrar (Umbral):</label>
+                    <input type="number" id="alert-threshold" name="threshold" min="0" value="5" required>
+                    <small>Se mostrarán los productos cuyo stock sea igual o menor a este número (incluyendo 0).</small>
                 </div>
                 
-                <hr>
-                
-                <h2>Productos en Alerta</h2>
-                <div id="low-stock-list" class="alert-list">
-                    <p>No hay productos con bajo stock actualmente.</p>
-                    </div>
-                
-                <button type="submit" class="form-btn save-alerts-btn">💾 Guardar Configuración</button>
+                <button type="submit" class="form-btn search-alerts-btn">🔍 Buscar Productos en Alerta</button>
             </form>
+
+            <hr>
+            
+            <h2>Resultados</h2>
+            <div id="results-container">
+                <p>Introduce un número y haz clic en buscar para ver los productos.</p>
+            </div>
+            
         </div>
     </div>
 </body>
+<script src="../js/alertas.js"></script>
 </html>
