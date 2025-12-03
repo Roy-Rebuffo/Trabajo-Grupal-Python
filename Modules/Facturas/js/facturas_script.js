@@ -89,10 +89,11 @@ document.getElementById("addLinea").addEventListener("click", () => {
 //Enviar la factura con todas las líneas agregadas en la tabla
 document.getElementById("facturaForm").addEventListener("submit", async (e) => {
   e.preventDefault();
+
   const numero = document.getElementById("numero").value;
   const cliente_id = document.getElementById("clienteSelect").value;
-
   const lineas = [];
+
   document.querySelectorAll("#productosBody tr").forEach(tr => {
     const producto_id = tr.dataset.productoId;
     const cantidad = parseInt(tr.dataset.cantidad, 10);
@@ -105,16 +106,19 @@ document.getElementById("facturaForm").addEventListener("submit", async (e) => {
   }
 
   try {
-    const result = await pywebview.api.Facturas_get_clientes(
+    const result = await pywebview.api.Facturas_crear_factura(
       numero,
       cliente_id,
       lineas,
       21,
       0
     );
-    const out = document.getElementById("resultado");
+
+    console.log("Factura generada:", result);
+    
   } catch (err) {
     console.error("Error al generar factura:", err);
-    alert("Error al generar la factura. Revisa los datos.");
+    document.getElementById("resultado").innerText =
+      "Error al generar factura. Revisa los datos.";
   }
 });

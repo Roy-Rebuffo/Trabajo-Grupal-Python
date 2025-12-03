@@ -4,10 +4,10 @@ import os
 class Generar_Factura(FPDF):
     #Cabecera del pdf
     def header(self):
-        self.image("./Modules/Facturas/draco_header.png", x=170, y=8, w=30)  # 👈 ajusta ruta y tamaño
+        self.image("./Modules/Facturas/draco_header.png", x=170, y=8, w=30) 
 
     # Espacio debajo del logo
-        self.set_xy(45, 10)  # 👈 mueve el cursor a la derecha del logo
+        self.set_xy(45, 10)
 
 
         self.set_font("Arial", "B", 12)

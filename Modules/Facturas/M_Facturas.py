@@ -1,11 +1,17 @@
+#Instalar la libreria 
+# pip install fpdf2
+
+
 import json
 import os
 from datetime import datetime
 from decimal import Decimal, ROUND_HALF_UP
-from .Generar_Facturas import Generar_Factura
+from Modules.Facturas.Generar_Facturas import Generar_Factura
+
+#Ruta tanto de clientes como de productos
 ruta_clientes= "./Data/clientes.json"
 ruta_productos= "./Data/productos.json"
-#Ruta tanto de clientes como de productos
+
 class Facturas:
     def __init__(self, ruta_clientes= "./Data/clientes.json", ruta_productos= "./Data/productos.json"):
         self.ruta_clientes = ruta_clientes
@@ -16,7 +22,7 @@ class Facturas:
     def _cargar_json(self,ruta):
         #Carga el archivo JSON desde disco, si no existe devuelve la lista vacia
         if not os.path.exists(ruta):
-            return []
+            return {}
         with open(ruta, "r") as f:
             return json.load(f)
     
@@ -94,7 +100,6 @@ class M_Facturas:
 
     def get_productos(self):
         productos = self.facturas.productos()
-        print("Productos cargados:", productos)  # 👈 esto debe mostrar tu dict en consola
         return [
         {"id": p["id"], "name": p["name"], "price": p["price"]}
         for p in productos.values()
@@ -102,15 +107,14 @@ class M_Facturas:
 
     def get_clientes(self):
         clientes = self.facturas.clientes()
-        print("Clientes cargados:", clientes)  # 👈 prueba en consola
         return [
         {
             "id": cid,
-            "name": c["name"],
-            "surname": c["surname"],
-            "email": c["email"],
-            "phone": c["phone"],
-            "city": c["city"]
+            "name": c.get("name", ""),
+            "surname": c.get("surname", ""),
+            "email": c.get("email", ""),
+            "phone": c.get("phone", ""),
+            "city": c.get("city", "")
         }
         for cid, c in clientes.items()
         ]
