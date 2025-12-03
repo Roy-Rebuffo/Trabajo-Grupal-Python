@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Detalles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../styles/detalles.css">
+    <style>
+        /* Estilos básicos para la tarjeta de detalles */
+        .product-details-card {
+            display: none;
+            /* Inicialmente oculto */
+            margin-top: 20px;
+            padding: 20px;
+            border-left: 5px solid #3498db;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .detail-grid strong {
+            color: #2c3e50;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        #detail-stock {
+            font-weight: bold;
+            color: #27ae60;
+            /* Verde para stock */
+        }
+
+        #detail-price {
+            font-weight: bold;
+            color: #e67e22;
+            /* Naranja para precio */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1 id="details-title">🔍 Ver Detalles</h1>
+            <p>Consulta información detallada y el historial de un producto específico.</p>
+        </header>
+
+        <button class="action-btn btn-back" onclick="window.location.href='landing.html'">
+            <span class="btn-icon">⬅️</span> Volver al Dashboard
+        </button>
+
+        <div class="form-card details-search-card">
+            <h2>Buscar Producto</h2>
+            <div class="form-group search-group">
+                <input type="text" id="search-product-id" placeholder="ID o Nombre del Producto" required>
+                <!-- CAMBIO CLAVE: Añadimos el onclick -->
+                <button type="button" onclick="SearchProductDetails()" class="form-btn search-btn">🔎 Buscar</button>
+            </div>
+        </div>
+
+        <div class="card product-details-card" id="product-details-display">
+            <h2>Información Detallada de: <span id="detail-name">[Nombre del Producto]</span></h2>
+
+            <div class="detail-grid">
+                <div><strong>ID:</strong> <span id="detail-id">N/A</span></div>
+                <div><strong>Stock Actual:</strong> <span id="detail-stock">N/A</span></div>
+                <div><strong>Categoría:</strong> <span id="detail-category">N/A</span></div>
+                <div><strong>Precio:</strong> <span id="detail-price">N/A</span></div>
+                <div class="full-width"><strong>Descripción:</strong> <span id="detail-description">N/A</span></div>
+                <div class="full-width"><strong>Última Actualización:</strong> <span id="detail-last-update">N/A</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- Cargamos el nuevo script -->
+<script src="../js/detalles.js"></script>
+
+</html>

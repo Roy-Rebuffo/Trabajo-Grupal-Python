@@ -174,6 +174,33 @@ function setupActionButtons() {
     document.getElementById('btn-list').addEventListener('click', () => {
         window.location.href = 'listar.html'; // ¡Aquí está el enlace!
     });
+    document.getElementById('btn-update').addEventListener('click', () => {
+        window.location.href = 'actualizar.html'; // ¡Aquí está el enlace!
+    });
+    document.getElementById('btn-alerts').addEventListener('click', () => {
+        window.location.href = 'alertas.html'; // ¡Aquí está el enlace!
+    });
+    document.getElementById('btn-add').addEventListener('click', () => {
+        window.location.href = 'añadir.html'; // ¡Aquí está el enlace!
+    });
+    document.getElementById('btn-archive').addEventListener('click', () => {
+        window.location.href = 'archivar.html'; // ¡Aquí está el enlace!
+    });
+    document.getElementById('btn-delete').addEventListener('click', () => {
+        window.location.href = 'borrar.html'; // ¡Aquí está el enlace!
+    });
+    document.getElementById('btn-discount').addEventListener('click', () => {
+        window.location.href = 'descuento.html'; // ¡Aquí está el enlace!
+    });
+    document.getElementById('btn-details').addEventListener('click', () => {
+        window.location.href = 'detalles.html'; // ¡Aquí está el enlace!
+    });
+    document.getElementById('btn-export').addEventListener('click', () => {
+        window.location.href = 'exportarDatos.html'; // ¡Aquí está el enlace!
+    });
+    document.getElementById('btn-reorder').addEventListener('click', () => {
+        window.location.href = 'reordenar.html'; // ¡Aquí está el enlace!
+    });
 
     // ... el resto de botones ...
 }
