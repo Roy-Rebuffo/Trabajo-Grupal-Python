@@ -3,7 +3,7 @@ let productosIndex = new Map();
 //Mantener: cargar productos en el select al estar lista la API
 window.addEventListener("pywebviewready", async () => {
   try {
-    const productos = await window.pywebview.api.get_productos();
+    const productos = await pywebview.api.Facturas_get_productos();
     console.log("Productos recibidos:", productos);
 
     const select = document.getElementById("productoSelect");
@@ -17,7 +17,7 @@ window.addEventListener("pywebviewready", async () => {
       productosIndex.set(p.id, p); // índice para lookup rápido por id
     });
 
-    const clientes = await window.pywebview.api.get_clientes();
+    const clientes = await pywebview.api.Facturas_get_clientes();
     const selectCli = document.getElementById("clienteSelect");
     selectCli.innerHTML = "";
     clientes.forEach(c => {
@@ -105,7 +105,7 @@ document.getElementById("facturaForm").addEventListener("submit", async (e) => {
   }
 
   try {
-    const result = await window.pywebview.api.crear_factura(
+    const result = await pywebview.api.Facturas_get_clientes(
       numero,
       cliente_id,
       lineas,

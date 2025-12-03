@@ -3,10 +3,10 @@ import os
 from datetime import datetime
 from decimal import Decimal, ROUND_HALF_UP
 from .Generar_Facturas import Generar_Factura
-
-
+ruta_clientes= "./Data/clientes.json"
+ruta_productos= "./Data/productos.json"
 #Ruta tanto de clientes como de productos
-class M_Facturas:
+class Facturas:
     def __init__(self, ruta_clientes= "./Data/clientes.json", ruta_productos= "./Data/productos.json"):
         self.ruta_clientes = ruta_clientes
         self.ruta_productos = ruta_productos
@@ -88,9 +88,9 @@ class M_Facturas:
 
         }  
 
-class Api:
-    def __init__(self, ruta_clientes, ruta_productos):
-        self.facturas = M_Facturas(ruta_clientes, ruta_productos)
+class M_Facturas:
+    def __init__(self):
+        self.facturas = Facturas()
 
     def get_productos(self):
         productos = self.facturas.productos()
