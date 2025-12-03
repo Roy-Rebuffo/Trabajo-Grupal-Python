@@ -32,13 +32,3 @@ function ListProducts() {
     })
     .catch(err => console.error("ERROR al listar productos:", err));
 }
-
-    // Función para obtener la estadística (OBLIGATORIO 3)
-// function GetStatistics() {
-//     pywebview.api.products_GetTopStocked(3) // Obtener los 3 con más stock
-//     .then(data => {
-//         console.log("Top 3 Productos con más Stock:", data);
-//         // Lógica para mostrar los resultados en HTML
-//     })
-//     .catch(err => console.error("ERROR al obtener estadísticas:", err));
-// }
