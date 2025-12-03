@@ -6,143 +6,92 @@
     <title>Services Manager</title>
 
     <link rel="stylesheet" href="./services.css">
-    <link rel="stylesheet" href="../../style.css">
-
-    <style>
-        /* Puedes mover esto a services.css si quieres */
-        body {
-            font-family: Arial, sans-serif;
-            background: #f3f3f3;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        .section {
-            background: white;
-            padding: 20px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px #0001;
-        }
-
-        .form-group label {
-            display: block;
-            margin-top: 10px;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 8px;
-        }
-
-        button {
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: #1976d2;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #125a9c;
-        }
-
-        /* Tabla */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        table th, table td {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-            text-align: left;
-        }
-
-        table th {
-            background: #1976d2;
-            color: white;
-        }
-
-        .delete-btn {
-            background: #d32f2f;
-        }
-
-        .delete-btn:hover {
-            background: #a32020;
-        }
-    </style>
-</head>
+    <link rel="stylesheet" href="../../style.css"> </head>
 <body>
 
-    <h1>Services Management</h1>
+    <h1>Servicios - Admin</h1>
 
-    <!-- 🔍 FILTROS -->
     <div class="section">
-        <h2>Filters</h2>
+        <h2>📊 Estadisticas</h2>
+        <ul>
+            <li>Servicios totales: <span id="stats_total_services">0</span></li>
+            <li>Servicios activos: <span id="stats_active_services">0</span></li>
+            <li>Precio medio:  <span id="stats_avg_price">0.00 €</span></li>
+            <li>Duración media: <span id="stats_avg_duration">0 min</span></li>
+        </ul>
 
-        <label for="filter_category">Filter by category:</label>
-        <input type="text" id="filter_category" placeholder="Ej: grooming">
-
-        <label for="filter_sort">Sort by:</label>
-        <select id="filter_sort">
-            <option value="">None</option>
-            <option value="duration">Duration (minutes)</option>
-            <option value="price">Price</option>
-            <option value="name">Name (A-Z)</option>
-        </select>
-
-        <button onclick="filterServices()">Apply Filters</button>
+        <h3>Count by Category:</h3>
+        <ul id="stats_categories">
+            </ul>
     </div>
 
-    <!-- 📋 LISTA DE SERVICIOS -->
+    <hr>
+
     <div class="section">
-        <h2>Available Services</h2>
+        <h2>Filters</h2>
+        
+        <div class="filter-controls">
+            <div class="filter-item">
+                <label for="filter_category">Filter by category:</label>
+                <input type="text" id="filter_category" placeholder="Ej: peluqueria (sin acentos)">
+            </div>
+
+            <div class="filter-item">
+                <label for="filter_sort">Ordenar por:</label>
+                <select id="filter_sort">
+                    <option value="">None</option>
+                    <option value="duration">Duracion (minutes)</option>
+                    <option value="price">Precio</option>
+                    <option value="name">Nombre (A-Z)</option>
+                </select>
+            </div>
+
+            <button onclick="filterServices()">Aplicar filtros</button>
+        </div>
+    </div>
+    
+    <hr>
+
+    <div class="section">
+        <h2>Servicios disponibles</h2>
         <table id="services_table">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Price (€)</th>
-                    <th>Duration</th>
-                    <th>Active</th>
+                    <th>Nombre</th>
+                    <th>Categoria</th>
+                    <th>Precio (€)</th>
+                    <th>Duracion</th>
+                    <th>Activo</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Rellenado por JS -->
-            </tbody>
+                </tbody>
         </table>
     </div>
 
-    <!-- ➕ AÑADIR SERVICIO -->
+    <hr>
+
     <div class="section">
-        <h2>Add a new service</h2>
+        <h2>Añadir nuevo servicio</h2>
 
         <div class="form-group">
-            <label>Name:</label>
+            <label>Nombre:</label>
             <input type="text" id="s_name">
 
-            <label>Category:</label>
+            <label>Categoria:</label>
             <input type="text" id="s_category">
 
-            <label>Price (€):</label>
-            <input type="number" id="s_price">
+            <label>Precio (€):</label>
+            <input type="number" id="s_price" step="0.01">
 
-            <label>Duration (minutes):</label>
+            <label>Duracion (minutos):</label>
             <input type="number" id="s_duration">
 
-            <label>Active:</label>
+            <label>Activo:</label>
             <input type="checkbox" id="s_active">
 
-            <button onclick="SendServiceData()">Add Service</button>
+            <button onclick="SendServiceData()">Añadir Servicio</button>
         </div>
     </div>
 

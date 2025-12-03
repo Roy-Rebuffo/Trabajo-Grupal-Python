@@ -1,10 +1,165 @@
+/* ========================== */
+/* ESTILOS GLOBALES */
+/* ========================== */
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
+    margin: 0;
+    padding: 20px;
+}
 
-.from-group {
+h1 {
+    text-align: center;
+}
+
+.section {
+    background: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+}
+
+.section h2 {
+    color: #1976d2;
+    border-bottom: 2px solid #1976d2;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* ========================== */
+/* FORMULARIOS (Añadir Servicio) */
+/* ========================== */
+.form-group {
     margin-bottom: 15px;
     text-align: left;
     display: flex;
     flex-direction: column;
     width: 100%;
-    align-items: center;
-    justify-content: center;
+}
+
+.form-group label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Importante para que padding no agrande el input */
+}
+
+/* ========================== */
+/* FILTROS */
+/* ========================== */
+.filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end; /* Alinea botón con inputs/select */
+    gap: 15px;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-controls input, .filter-controls select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 150px;
+}
+
+/* ========================== */
+/* ESTADÍSTICAS */
+/* ========================== */
+.section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Lista principal de estadísticas */
+.section ul:not(#stats_categories) {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px; 
+}
+
+.section ul:not(#stats_categories) li {
+    background: #e3f2fd; /* Fondo azul claro */
+    padding: 10px 15px;
+    border-radius: 4px;
+    flex: 1; 
+    min-width: 180px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Lista de categorías */
+#stats_categories {
+    display: block; 
+    margin-top: 10px;
+    columns: 2; /* Mostrar en dos columnas si hay muchas */
+}
+
+#stats_categories li {
+    background: none;
+    padding: 5px 0;
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 3px;
+    font-size: 0.9em;
+    list-style: disc;
+    margin-left: 20px;
+}
+
+
+/* ========================== */
+/* TABLA Y BOTONES */
+/* ========================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table th, table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background: #1976d2;
+    color: white;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #125a9c;
+}
+
+.delete-btn {
+    background: #d32f2f;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    margin-top: 0; /* Para alinearlo bien en la tabla */
+}
+
+.delete-btn:hover {
+    background: #a32020;
 }

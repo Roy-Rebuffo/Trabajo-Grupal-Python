@@ -1,34 +1,23 @@
-[
-    {
-        "id": "S1",
+{
+    "S1": {
         "name": "Corte de pelo",
-        "category": "Peluquería",
+        "category": "Peluqueria",
         "price": 15.0,
         "duration_minutes": 30,
         "active": true
     },
-    {
-        "id": "S2",
+    "S2": {
         "name": "Tinte completo",
-        "category": "Coloración",
+        "category": "Coloracion",
         "price": 35.0,
         "duration_minutes": 60,
         "active": true
     },
-    {
-        "id": "S3",
-        "name": "Peinado",
-        "category": "Estilismo",
-        "price": 20.0,
-        "duration_minutes": 40,
-        "active": true
-    },
-    {
-        "id": "f51463f1-5ed6-4b9b-8f95-dc57746c0bc4",
+    "bb212218-be4f-448b-85b2-a2ca69774e2d": {
         "name": "Prueba",
         "category": "Prueba",
-        "price": 10.0,
+        "price": 10,
         "duration_minutes": 10,
-        "active": false
+        "active": true
     }
-]
+}
