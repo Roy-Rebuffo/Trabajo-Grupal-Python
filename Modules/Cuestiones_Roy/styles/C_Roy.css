@@ -1,0 +1,148 @@
+/* ===================================================
+   Estilos Generales
+   =================================================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 60px; /* Espacio para el navbar fijo */
+}
+
+/* Contenedor principal para centrar el contenido */
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+/* Títulos principales */
+h1 {
+    color: #1e3c72; /* Azul oscuro */
+    border-bottom: 3px solid #f6c026; /* Línea de acento amarillo/oro */
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-size: 2.2em;
+}
+
+/* Títulos de secciones */
+h2 {
+    color: #2a5298; /* Azul intermedio */
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+}
+
+/* ===================================================
+   Botón de Carga
+   =================================================== */
+.btn {
+    background-color: #2a5298;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.1s;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.btn:hover {
+    background-color: #1e3c72;
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+
+/* ===================================================
+   Estilos de Tablas
+   =================================================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden; /* Para que las esquinas redondeadas funcionen bien */
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e6eb;
+}
+
+/* Encabezados de tabla */
+th {
+    background-color: #3b5998; /* Azul más vibrante */
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+/* Estilo para filas pares (zebra striping) */
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: #eef2f5;
+}
+
+/* Estilos específicos de celdas importantes (por ejemplo, para el margen) */
+td[style*="color:red"] {
+    font-weight: bold;
+}
+td[style*="color:green"] {
+    font-weight: bold;
+}
+
+
+/* ===================================================
+   Estilos de Gráficos (Canvas y Resultados)
+   =================================================== */
+#results_roy {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Contenedor flexible para alinear gráficos y tablas */
+div:has(table) { /* Selecciona el div que contiene una tabla */
+    display: block; /* Vuelve a bloque para que la tabla ocupe su propio espacio */
+}
+
+/* Alineación de gráficos y tablas */
+canvas {
+    display: block;
+    margin: 15px 0 20px 0;
+    border: 1px solid #e0e6eb;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+/* Navbar de ejemplo (Si existe) */
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #3b5998; 
+    color: white;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}

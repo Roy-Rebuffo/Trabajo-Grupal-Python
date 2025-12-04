@@ -2,9 +2,9 @@ from Modules.customers.M_Customers import M_Customers
 from Modules.Facturas.M_Facturas import M_Facturas
 from Modules.products.M_Products import M_Products
 from Modules.services.M_Services import M_Services
-# --- IMPORTACIÓN CORREGIDA ---
 from Modules.usuarios.M_users import M_users 
-# ------------------------------
+import sys
+import os
 
 class M_Cuestiones_Roy:
     def __init__(self):
@@ -14,44 +14,72 @@ class M_Cuestiones_Roy:
         self.m_services = M_Services()
         self.m_usuarios = M_users() 
 
-        self.clientes = self.m_customers.GetCustomers()
-        self.productos = self.m_productos.GetProducts()
-        self.servicios = self.m_services.getServices()
-        self.usuarios = self.m_usuarios.cargar_usuarios()
+        # ------------------------------------------------------------------
+        # --- Carga y CONVERSIÓN de LISTA a DICCIONARIO por ID (SOLUCIÓN al AttributeError) ---
+        # ------------------------------------------------------------------
+        
+        # 1. CLIENTES (Asumo clave 'id_cliente')
+        clientes_lista = self.m_customers.GetCustomers() 
+        self.clientes = {
+            str(c.get('id_cliente')): c 
+            for c in clientes_lista 
+            if isinstance(c, dict) and c.get('id_cliente') is not None
+        }
+        
+        # 2. PRODUCTOS (Asumo que GetProducts() ya devuelve diccionario, si no, usar la lista de abajo)
+        self.productos = self.m_productos.GetProducts() 
+        
+        # 3. SERVICIOS (Asumo clave 'id_servicio')
+        servicios_lista = self.m_services.getServices()
+        self.servicios = {
+            str(s.get('id_servicio')): s 
+            for s in servicios_lista 
+            if isinstance(s, dict) and s.get('id_servicio') is not None
+        }
+
+        # 4. USUARIOS (Clave 'id_usuario' - ESTO SOLUCIONA EL ERROR LIST VS DICT)
+        usuarios_lista = self.m_usuarios.cargar_usuarios()
+        self.usuarios = {
+            str(u.get('id_usuario')): u 
+            for u in usuarios_lista 
+            if isinstance(u, dict) and u.get('id_usuario') is not None
+        }
+        
+        # ------------------------------------------------------------------
+
 
     # Función auxiliar para obtener nombre completo de cliente
     def nombre_completo_cliente(self, cid):
         cliente = self.clientes.get(cid)
         if cliente:
-            return f"{cliente['name']} {cliente['surname']}"
-        return "Cliente Desconocido"
+            # Reviso si las claves son 'name' y 'surname' o 'nombre' y 'apellido'
+            name = cliente.get('name', cliente.get('nombre', ''))
+            surname = cliente.get('surname', cliente.get('apellido', ''))
+            return f"{name} {surname}"
+        return f"Cliente Desconocido ({cid})"
 
     # Función auxiliar para obtener nombre completo de empleado/usuario
     def nombre_completo_usuario(self, uid):
         usuario = self.usuarios.get(uid)
         if usuario:
-            # Asumo que los usuarios tienen 'name' y 'surname' como los clientes
-            return f"{usuario['name']} {usuario['surname']}"
-        return "Usuario Desconocido"
+            # Asumo que los usuarios tienen 'nombre' y 'apellido' (por tu M_users.py)
+            return f"{usuario.get('nombre', '')} {usuario.get('apellido', '')}"
+        return f"Empleado Desconocido ({uid})"
 
-    # ... (El resto de los métodos 8 al 14 y ejecutar_grupo_2 permanecen igual) ...
-    # Para la concisión, solo muestro la parte modificada
-    
     # Función auxiliar para obtener nombre de producto
     def nombre_producto(self, pid):
         producto = self.productos.get(pid)
-        return producto['name'] if producto else "Producto Desconocido"
+        return producto.get('name', "Producto Desconocido") if producto else "Producto Desconocido"
 
     # Función auxiliar para obtener nombre de servicio
     def nombre_servicio(self, sid):
         servicio = self.servicios.get(sid)
-        return servicio['name'] if servicio else "Servicio Desconocido"
+        return servicio.get('name', "Servicio Desconocido") if servicio else "Servicio Desconocido"
 
     # -----------------------------
     # 8. Ranking de productos con mayor facturación
     # -----------------------------
     def ranking_productos_por_facturacion(self, limit=10):
-        # ... (código del método 8) ...
         facturas = self.m_facturas.obtener_facturas()
         facturacion_por_producto = {}
 
@@ -66,7 +94,7 @@ class M_Cuestiones_Roy:
         return [(pid, self.nombre_producto(pid), facturacion) for pid, facturacion in ranking[:limit]]
 
     # -----------------------------
-    # 9. Servicios más vendidos por empleado
+    # 9. Servicios más vendidos por empleado (Simplificado a 'empleado_id' si falla el nombre)
     # -----------------------------
     def servicios_vendidos_por_empleado(self):
         facturas = self.m_facturas.obtener_facturas()
@@ -86,7 +114,9 @@ class M_Cuestiones_Roy:
 
         resultados = {}
         for uid, servicios_vendidos in ventas_por_empleado.items():
-            nombre_empleado = self.nombre_completo_usuario(uid)
+            # Intentamos obtener el nombre completo. Si falla, usamos el ID directamente.
+            nombre_empleado = self.nombre_completo_usuario(uid) 
+            
             ranking_servicios = sorted(servicios_vendidos.items(), key=lambda x: x[1], reverse=True)
             resultados[nombre_empleado] = [(self.nombre_servicio(sid), cantidad) for sid, cantidad in ranking_servicios]
         
@@ -149,15 +179,23 @@ class M_Cuestiones_Roy:
         return totales
 
     # -----------------------------
-    # 12. Producto más vendido según ciudad del cliente
+    # 12. Producto más vendido según ciudad del cliente (Utiliza .get() para evitar KeyErrors)
     # -----------------------------
     def producto_mas_vendido_por_ciudad(self):
         facturas = self.m_facturas.obtener_facturas()
         conteo_por_ciudad = {}
 
         for factura in facturas.values():
-            cid = factura["cliente_id"]
-            ciudad = self.clientes[cid]["city"]
+            cid = factura.get("cliente_id")
+            
+            # Buscamos el cliente y usamos .get() de forma segura
+            cliente = self.clientes.get(cid)
+            
+            if not cliente:
+                 # Si el cliente no existe o no se cargó, saltamos esta factura
+                 continue 
+
+            ciudad = cliente.get("city", "Ciudad Desconocida") # Usamos .get() de diccionario
             
             conteo_por_ciudad.setdefault(ciudad, {})
 
@@ -236,6 +274,14 @@ class M_Cuestiones_Roy:
     # Ejecutar todas las estadísticas del Grupo 2
     # -----------------------------
     def ejecutar_grupo_2(self):
+        # Solución para que el módulo funcione independientemente:
+        # Esto solo es necesario si se ejecuta el archivo M_Cuestiones_Roy.py directamente
+        # y no a través de app.py
+        if 'Modules' in sys.modules:
+             print("Ejecutando desde la raíz del proyecto (app.py)")
+        else:
+             print("Ejecutando módulo de forma independiente (puede fallar si faltan datos)")
+
         print("8) Ranking de productos con mayor facturación:")
         print(self.ranking_productos_por_facturacion())
 
@@ -259,5 +305,8 @@ class M_Cuestiones_Roy:
 
 
 if __name__ == "__main__":
+    # Añadir el directorio raíz al path para que funcionen las importaciones relativas
+    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+    
     mc = M_Cuestiones_Roy()
     mc.ejecutar_grupo_2()
