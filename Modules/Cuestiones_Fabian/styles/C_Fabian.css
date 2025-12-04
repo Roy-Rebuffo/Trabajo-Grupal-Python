@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #f3f3f3;
+}
+
+h1 {
+    text-align: center;
+}
+canvas {
+    display: block;
+    margin: 25px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+table {
+    margin: 15px auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th, td {
+    padding: 6px 10px;
+    text-align: center;
+}
+
+.main{
+    margin-top: 4rem;
+}
+.btn {
+    background: #007bff;
+    color: white;
+    padding: 12px 18px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+#results h2 {
+    margin-top: 25px;
+    color: #333;
+}
+p{color: #333;}
+pre {
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
