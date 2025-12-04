@@ -33,16 +33,12 @@ modules={
     "services":servicios,
     "Facturas":facturas,
     "C_Fabian" :M_cuestiones_Fabian_instance,
-<<<<<<< HEAD
-    "C_Roy" : M_Cuestiones_Roy_instance,
-    "C_Rafael":M_cuestiones_Rafael_instance
-=======
 
+    "C_Roy" : M_Cuestiones_Roy_instance,
+    "C_Rafael":M_cuestiones_Rafael_instance,
     "C_Mar":M_cuestiones_Mar_instance,
 
-    "C_Roy" : M_Cuestiones_Roy_instance
 
->>>>>>> develop
     }
 
     
