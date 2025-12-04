@@ -1,31 +1,37 @@
 {
   "U1": {
-    "name": "Enrique",
-    "surname": "Diaz",
-    "email": "enrdiaz@gmail.com",
-    "phone": "654789123",
-    "city": "Sevilla",
-    "fecha_contrato": "2025-11-26",
+    "name": "Roy",
+    "surname": "Rebuffo",
+    "email": "roy.rebuffo@example.com",
+    "phone": "123456001",
+    "city": "New York",
     "rol": "EMPLEADO",
     "active": true
   },
   "U2": {
-    "name": "roy",
-    "surname": "rebuffo",
-    "email": "roy34@gmail.com",
-    "phone": "658741239",
-    "city": "Madrid",
-    "fecha_contrato": "2025-11-05",
+    "name": "Mar",
+    "surname": "Clara",
+    "email": "mar.clara@example.com",
+    "phone": "123456002",
+    "city": "Los Angeles",
     "rol": "EMPLEADO",
     "active": true
   },
   "U3": {
-    "name": "Stalin",
+    "name": "Rafael",
     "surname": "Gonzales",
-    "email": "ssgonza@gmail.com",
-    "phone": "456123741",
-    "city": "Barcelona",
-    "fecha_contrato": "2025-10-08",
+    "email": "rafael.gonzales@example.com",
+    "phone": "123456003",
+    "city": "Chicago",
+    "rol": "EMPLEADO",
+    "active": true
+  },
+  "U4": {
+    "name": "Leo",
+    "surname": "Paredez",
+    "email": "leo.paredez@example.com",
+    "phone": "123456004",
+    "city": "Miami",
     "rol": "EMPLEADO",
     "active": true
   }

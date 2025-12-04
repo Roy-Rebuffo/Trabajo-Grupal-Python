@@ -13,6 +13,7 @@ from Modules.customers.M_Customers import M_Customers
 ruta_clientes= "./Data/clientes.json"
 ruta_productos= "./Data/productos.json"
 ruta_servicios = "./Data/servicios.json"
+ruta_facturas = "./Data/facturas.json"
 
 class Facturas:
     def __init__(self, ruta_clientes= "./Data/clientes.json", ruta_productos= "./Data/productos.json", ruta_servicios = "./Data/servicios.json"):
@@ -21,9 +22,7 @@ class Facturas:
         self.ruta_servicios = ruta_servicios
         self._clientes = None
         self._productos = None
-
         
-
     def servicios(self):
         return self._cargar_json(ruta_servicios)
 
@@ -135,6 +134,13 @@ class M_Facturas:
         self.facturas = Facturas()
         self.ruta_facturas = "./Data/facturas.json"
 
+    def obtener_facturas(self):
+       
+        if not os.path.exists(ruta_facturas):
+            return {}  
+        with open(ruta_facturas, "r", encoding="utf-8") as f:
+            return json.load(f)
+    
     def get_productos(self):
         productos = self.facturas.productos()
         return [

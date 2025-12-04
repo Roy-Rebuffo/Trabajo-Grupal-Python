@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services Manager</title>
 
-    <link rel="stylesheet" href="./services.css">
-    <link rel="stylesheet" href="../../style.css"> </head>
+    <link rel="stylesheet" href="../services.css>
+    <link rel="stylesheet" href="../../../style.css"> </head>
 <body>
+    <div id="navbar"></div>
 
+    <script>
+      fetch("../../navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+    
     <h1>Servicios - Admin</h1>
 
     <div class="section">
@@ -95,6 +104,6 @@
         </div>
     </div>
 
-<script src="./services.js"></script>
+<script src="../services.js"></script>
 </body>
 </html>

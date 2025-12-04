@@ -1,68 +1,110 @@
 {
-    "FAC-e9ef86ef": {
-        "numero": "FAC-e9ef86ef",
-        "fecha": "2025-12-04",
-        "cliente_id": "ID2",
-        "empleado_id": "U1",
-        "lineas": [
-            {
-                "id_referencia": "PR-0001",
-                "tipo": "producto",
-                "nombre": "Kativa",
-                "precio_unitario": 15.95,
-                "cantidad": 1,
-                "total_linea": 15.95
-            },
-            {
-                "id_referencia": "S1",
-                "tipo": "servicio",
-                "nombre": "Corte de pelo",
-                "precio_unitario": 15.0,
-                "cantidad": 1,
-                "total_linea": 15.0
-            }
-        ],
-        "totales": {
-            "subtotal": 30.95,
-            "descuento": 0.0,
-            "base": 30.95,
-            "iva": 6.5,
-            "total": 37.45,
-            "iva_porcentaje": 21,
-            "descuento_porcentaje": 0
-        }
-    },
-    "FAC-5be3f9a7": {
-        "numero": "FAC-5be3f9a7",
-        "fecha": "2025-12-04",
-        "cliente_id": "ID2",
-        "empleado_id": "U1",
-        "lineas": [
-            {
-                "id_referencia": "PR-0001",
-                "tipo": "producto",
-                "nombre": "Kativa",
-                "precio_unitario": 15.95,
-                "cantidad": 1,
-                "total_linea": 15.95
-            },
-            {
-                "id_referencia": "S1",
-                "tipo": "servicio",
-                "nombre": "Corte de pelo",
-                "precio_unitario": 15.0,
-                "cantidad": 1,
-                "total_linea": 15.0
-            }
-        ],
-        "totales": {
-            "subtotal": 30.95,
-            "descuento": 0.0,
-            "base": 30.95,
-            "iva": 6.5,
-            "total": 37.45,
-            "iva_porcentaje": 21,
-            "descuento_porcentaje": 0
-        }
+  "1": {
+    "numero": "1",
+    "fecha": "2025-12-04",
+    "cliente_id": "ID1",
+    "empleado_id": "U1",
+    "lineas": [
+      {
+        "id_referencia": "PR-0001",
+        "tipo": "producto",
+        "cantidad": 1,
+        "precio_unitario": 12.00
+      },
+      {
+        "id_referencia": "S1",
+        "tipo": "servicio",
+        "cantidad": 1,
+        "precio_unitario": 20.00
+      }
+    ],
+    "totales": {
+      "subtotal": 32.00,
+      "descuento": 0,
+      "base": 32.00,
+      "iva": 6.72,
+      "total": 38.72
     }
+  },
+  "2": {
+    "numero": "2",
+    "fecha": "2025-12-04",
+    "cliente_id": "ID2",
+    "empleado_id": "U2",
+    "lineas": [
+      {
+        "id_referencia": "PR-0003",
+        "tipo": "producto",
+        "cantidad": 2,
+        "precio_unitario": 15.00
+      },
+      {
+        "id_referencia": "S2",
+        "tipo": "servicio",
+        "cantidad": 1,
+        "precio_unitario": 15.00
+      }
+    ],
+    "totales": {
+      "subtotal": 45.00,
+      "descuento": 0,
+      "base": 45.00,
+      "iva": 9.45,
+      "total": 54.45
+    }
+  },
+  "3": {
+    "numero": "3",
+    "fecha": "2025-12-04",
+    "cliente_id": "ID3",
+    "empleado_id": "U3",
+    "lineas": [
+      {
+        "id_referencia": "S3",
+        "tipo": "servicio",
+        "cantidad": 1,
+        "precio_unitario": 10.00
+      },
+      {
+        "id_referencia": "S5",
+        "tipo": "servicio",
+        "cantidad": 1,
+        "precio_unitario": 5.00
+      }
+    ],
+    "totales": {
+      "subtotal": 15.00,
+      "descuento": 0,
+      "base": 15.00,
+      "iva": 3.15,
+      "total": 18.15
+    }
+  },
+  "4": {
+    "numero": "4",
+    "fecha": "2025-12-04",
+    "cliente_id": "ID4",
+    "empleado_id": "U4",
+    "lineas": [
+      {
+        "id_referencia": "PR-0002",
+        "tipo": "producto",
+        "cantidad": 1,
+        "precio_unitario": 8.50
+      },
+      {
+        "id_referencia": "S4",
+        "tipo": "servicio",
+        "cantidad": 1,
+        "precio_unitario": 40.00
+      }
+    ],
+    "totales": {
+      "subtotal": 48.50,
+      "descuento": 0,
+      "base": 48.50,
+      "iva": 10.19,
+      "total": 58.69
+    }
+  }
 }
