@@ -8,8 +8,8 @@ let filteredList = [];   // Lista tras filtros/orden
 //  UTILIDADES
 // ==========================
 /**
- * Normaliza una cadena eliminando acentos (diacríticos) y la convierte a minúsculas.
- * Ej: "Peluquería" -> "peluqueria"
+ * 
+ * 
  * @param {string} str 
  * @returns {string}
  */
