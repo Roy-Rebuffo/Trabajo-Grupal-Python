@@ -7,6 +7,16 @@
     <title>Document</title>
 </head>
 <body>
+  <div id="navbar"></div>
+
+    <script>
+      fetch("../../navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+
   <h1>Generar Factura</h1>
   <form id="facturaForm">
     <label>ID Cliente:</label>

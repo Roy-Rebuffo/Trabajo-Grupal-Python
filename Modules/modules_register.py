@@ -5,6 +5,7 @@ from Modules.Facturas.M_Facturas import M_Facturas
 from Modules.usuarios.M_users import M_users
 from Modules.Cuestiones_Fabian.M_Cuestiones_Fabian import M_cuestiones_Fabian
 from Modules.Cuestiones_Roy.M_Cuestiones_Roy import M_Cuestiones_Roy
+from Modules.Cuestiones_Rafael.M_cuestiones_Rafael import M_cuestiones_Rafael
 
 clientes=M_Customers()
 usuarios = M_users()
@@ -13,6 +14,8 @@ productos=M_Products()
 facturas = M_Facturas()
 M_cuestiones_Fabian_instance=M_cuestiones_Fabian()
 M_Cuestiones_Roy_instance=M_Cuestiones_Roy()
+M_cuestiones_Rafael_instance = M_cuestiones_Rafael() 
+
 
 modules={
     
@@ -22,7 +25,8 @@ modules={
     "services":servicios,
     "Facturas":facturas,
     "C_Fabian" :M_cuestiones_Fabian_instance,
-    "C_Roy" : M_Cuestiones_Roy_instance
+    "C_Roy" : M_Cuestiones_Roy_instance,
+    "C_Rafael":M_cuestiones_Rafael_instance
     }
 
     

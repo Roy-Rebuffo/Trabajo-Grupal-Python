@@ -8,6 +8,17 @@
     <link rel="stylesheet" href="../styles/users.css">
 </head>
 <body>
+
+    <div id="navbar"></div>
+
+    <script>
+      fetch("../../navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+    
     <h1>Registro de usuarios</h1>
     <div class="form-group">
         <label for="nombre">Nombre:</label>
