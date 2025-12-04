@@ -26,18 +26,16 @@ class M_Cuestiones_Roy:
             if isinstance(c, dict) and c.get('id_cliente') is not None
         }
         
-        # 2. PRODUCTOS (Asumo que GetProducts() ya devuelve diccionario, si no, usar la lista de abajo)
+        # 2. PRODUCTOS 
+        # Asumo que GetProducts() ya devuelve diccionario { 'PR-0001': {...} }
         self.productos = self.m_productos.GetProducts() 
         
-        # 3. SERVICIOS (Asumo clave 'id_servicio')
-        servicios_lista = self.m_services.getServices()
-        self.servicios = {
-            str(s.get('id_servicio')): s 
-            for s in servicios_lista 
-            if isinstance(s, dict) and s.get('id_servicio') is not None
-        }
-
-        # 4. USUARIOS (Clave 'id_usuario' - ESTO SOLUCIONA EL ERROR LIST VS DICT)
+        # 3. SERVICIOS (CORRECCIÓN: Asumo que getServices() devuelve el DICCIONARIO { 'S1': {...} })
+        # Si getServices() devuelve el diccionario, lo asignamos directamente, 
+        # ya que la conversión manual estaba buscando una clave incorrecta ('id_servicio').
+        self.servicios = self.m_services.getServices()
+        
+        # 4. USUARIOS (Clave 'id_usuario')
         usuarios_lista = self.m_usuarios.cargar_usuarios()
         self.usuarios = {
             str(u.get('id_usuario')): u 
@@ -101,7 +99,8 @@ class M_Cuestiones_Roy:
         ventas_por_empleado = {}
 
         for factura in facturas.values():
-            uid = factura["empleado_id"]
+            # Nota: Asumo que 'empleado_id' es una clave de string, como requiere el diccionario self.usuarios
+            uid = str(factura["empleado_id"]) 
             ventas_por_empleado.setdefault(uid, {})
             
             for linea in factura["lineas"]:
@@ -186,17 +185,26 @@ class M_Cuestiones_Roy:
         conteo_por_ciudad = {}
 
         for factura in facturas.values():
-            cid = factura.get("cliente_id")
-            
+            cid_factura = factura.get("cliente_id")
+        
+            # 🎯 CORRECCIÓN CLAVE: Intentar estandarizar el ID al formato 'IDx' si viene como número 'x'
+            if isinstance(cid_factura, (int, float)) and self.clientes.get(f"ID{int(cid_factura)}"):
+                cid = f"ID{int(cid_factura)}"
+            # Si no es un número o si ya viene en el formato correcto (ej: "ID1"), lo usamos tal cual
+            elif cid_factura is not None:
+                cid = str(cid_factura)
+            else:
+                continue # Si no hay ID, saltamos
+
             # Buscamos el cliente y usamos .get() de forma segura
             cliente = self.clientes.get(cid)
-            
+        
             if not cliente:
-                 # Si el cliente no existe o no se cargó, saltamos esta factura
-                 continue 
+                # Si el cliente no existe o no se cargó, saltamos esta factura
+                continue 
 
             ciudad = cliente.get("city", "Ciudad Desconocida") # Usamos .get() de diccionario
-            
+        
             conteo_por_ciudad.setdefault(ciudad, {})
 
             for linea in factura["lineas"]:
@@ -211,15 +219,15 @@ class M_Cuestiones_Roy:
             if conteo:
                 pid_mas_vendido = max(conteo, key=conteo.get)
                 cantidad_mas_vendida = conteo[pid_mas_vendido]
-                
+            
                 resultados[ciudad] = {
                     "producto_id": pid_mas_vendido,
                     "nombre_producto": self.nombre_producto(pid_mas_vendido),
                     "cantidad": cantidad_mas_vendida
                 }
             else:
-                 resultados[ciudad] = None
-                 
+                resultados[ciudad] = None
+                
         return resultados
 
     # -----------------------------
@@ -235,6 +243,8 @@ class M_Cuestiones_Roy:
                     sid = linea["id_referencia"]
                     cantidad = linea["cantidad"]
                     
+                    # CORRECCIÓN: self.servicios.get(sid, {}) ya devolverá el diccionario completo 
+                    # si sid existe.
                     duracion_unit = self.servicios.get(sid, {}).get("duration_minutes", 0)
                     
                     duracion_linea = cantidad * duracion_unit
