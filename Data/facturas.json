@@ -1,110 +1,143 @@
 {
-  "1": {
-    "numero": "1",
-    "fecha": "2025-12-04",
-    "cliente_id": "ID1",
-    "empleado_id": "U1",
-    "lineas": [
-      {
-        "id_referencia": "PR-0001",
-        "tipo": "producto",
-        "cantidad": 1,
-        "precio_unitario": 12.00
-      },
-      {
-        "id_referencia": "S1",
-        "tipo": "servicio",
-        "cantidad": 1,
-        "precio_unitario": 20.00
-      }
-    ],
-    "totales": {
-      "subtotal": 32.00,
-      "descuento": 0,
-      "base": 32.00,
-      "iva": 6.72,
-      "total": 38.72
+    "1": {
+        "numero": "1",
+        "fecha": "2025-12-04",
+        "cliente_id": "ID1",
+        "empleado_id": "U1",
+        "lineas": [
+            {
+                "id_referencia": "PR-0001",
+                "tipo": "producto",
+                "cantidad": 1,
+                "precio_unitario": 12.0
+            },
+            {
+                "id_referencia": "S1",
+                "tipo": "servicio",
+                "cantidad": 1,
+                "precio_unitario": 20.0
+            }
+        ],
+        "totales": {
+            "subtotal": 32.0,
+            "descuento": 0,
+            "base": 32.0,
+            "iva": 6.72,
+            "total": 38.72
+        }
+    },
+    "2": {
+        "numero": "2",
+        "fecha": "2025-12-04",
+        "cliente_id": "ID2",
+        "empleado_id": "U2",
+        "lineas": [
+            {
+                "id_referencia": "PR-0003",
+                "tipo": "producto",
+                "cantidad": 2,
+                "precio_unitario": 15.0
+            },
+            {
+                "id_referencia": "S2",
+                "tipo": "servicio",
+                "cantidad": 1,
+                "precio_unitario": 15.0
+            }
+        ],
+        "totales": {
+            "subtotal": 45.0,
+            "descuento": 0,
+            "base": 45.0,
+            "iva": 9.45,
+            "total": 54.45
+        }
+    },
+    "3": {
+        "numero": "3",
+        "fecha": "2025-12-04",
+        "cliente_id": "ID3",
+        "empleado_id": "U3",
+        "lineas": [
+            {
+                "id_referencia": "S3",
+                "tipo": "servicio",
+                "cantidad": 1,
+                "precio_unitario": 10.0
+            },
+            {
+                "id_referencia": "S5",
+                "tipo": "servicio",
+                "cantidad": 1,
+                "precio_unitario": 5.0
+            }
+        ],
+        "totales": {
+            "subtotal": 15.0,
+            "descuento": 0,
+            "base": 15.0,
+            "iva": 3.15,
+            "total": 18.15
+        }
+    },
+    "4": {
+        "numero": "4",
+        "fecha": "2025-12-04",
+        "cliente_id": "ID4",
+        "empleado_id": "U4",
+        "lineas": [
+            {
+                "id_referencia": "PR-0002",
+                "tipo": "producto",
+                "cantidad": 1,
+                "precio_unitario": 8.5
+            },
+            {
+                "id_referencia": "S4",
+                "tipo": "servicio",
+                "cantidad": 1,
+                "precio_unitario": 40.0
+            }
+        ],
+        "totales": {
+            "subtotal": 48.5,
+            "descuento": 0,
+            "base": 48.5,
+            "iva": 10.19,
+            "total": 58.69
+        }
+    },
+    "FAC-6318a337": {
+        "numero": "FAC-6318a337",
+        "fecha": "2025-12-05",
+        "cliente_id": "ID1",
+        "empleado_id": "U3",
+        "lineas": [
+            {
+                "id_referencia": "PR-0001",
+                "tipo": "producto",
+                "nombre": "Shampoo",
+                "precio_unitario": 12.0,
+                "cantidad": 1,
+                "total_linea": 12.0
+            },
+            {
+                "id_referencia": "S1",
+                "tipo": "servicio",
+                "nombre": "Corte de pelo",
+                "precio_unitario": 15.0,
+                "cantidad": 1,
+                "total_linea": 15.0
+            }
+        ],
+        "totales": {
+            "subtotal": 27.0,
+            "descuento": 0.0,
+            "base": 27.0,
+            "iva": 5.67,
+            "total": 32.67,
+            "iva_porcentaje": 21,
+            "descuento_porcentaje": 0
+        }
     }
-  },
-  "2": {
-    "numero": "2",
-    "fecha": "2025-12-04",
-    "cliente_id": "ID2",
-    "empleado_id": "U2",
-    "lineas": [
-      {
-        "id_referencia": "PR-0003",
-        "tipo": "producto",
-        "cantidad": 2,
-        "precio_unitario": 15.00
-      },
-      {
-        "id_referencia": "S2",
-        "tipo": "servicio",
-        "cantidad": 1,
-        "precio_unitario": 15.00
-      }
-    ],
-    "totales": {
-      "subtotal": 45.00,
-      "descuento": 0,
-      "base": 45.00,
-      "iva": 9.45,
-      "total": 54.45
-    }
-  },
-  "3": {
-    "numero": "3",
-    "fecha": "2025-12-04",
-    "cliente_id": "ID3",
-    "empleado_id": "U3",
-    "lineas": [
-      {
-        "id_referencia": "S3",
-        "tipo": "servicio",
-        "cantidad": 1,
-        "precio_unitario": 10.00
-      },
-      {
-        "id_referencia": "S5",
-        "tipo": "servicio",
-        "cantidad": 1,
-        "precio_unitario": 5.00
-      }
-    ],
-    "totales": {
-      "subtotal": 15.00,
-      "descuento": 0,
-      "base": 15.00,
-      "iva": 3.15,
-      "total": 18.15
-    }
-  },
-  "4": {
-    "numero": "4",
-    "fecha": "2025-12-04",
-    "cliente_id": "ID4",
-    "empleado_id": "U4",
-    "lineas": [
-      {
-        "id_referencia": "PR-0002",
-        "tipo": "producto",
-        "cantidad": 1,
-        "precio_unitario": 8.50
-      },
-      {
-        "id_referencia": "S4",
-        "tipo": "servicio",
-        "cantidad": 1,
-        "precio_unitario": 40.00
-      }
-    ],
-    "totales": {
-      "subtotal": 48.50,
-      "descuento": 0,
-      "base": 48.50,
-      "iva": 10.19,
-      "total": 58.69
-    }
-  }
 }
