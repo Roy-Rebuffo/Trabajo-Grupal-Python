@@ -1,42 +1,37 @@
 {
-  "S1": {
-    "id": "S1",
-    "name": "Haircut",
-    "category": "Peluqueria",
-    "price": 20.00,
-    "duration_minutes": 30,
-    "active": true
-  },
-  "S2": {
-    "id": "S2",
-    "name": "Beard Trim",
-    "category": "Peluqueria",
-    "price": 15.00,
-    "duration_minutes": 20,
-    "active": true
-  },
-  "S3": {
-    "id": "S3",
-    "name": "Shave",
-    "category": "Peluqueria",
-    "price": 10.00,
-    "duration_minutes": 15,
-    "active": true
-  },
-  "S4": {
-    "id": "S4",
-    "name": "Hair Coloring",
-    "category": "Peluqueria",
-    "price": 40.00,
-    "duration_minutes": 60,
-    "active": true
-  },
-  "S5": {
-    "id": "S5",
-    "name": "Hair Wash",
-    "category": "Peluqueria",
-    "price": 5.00,
-    "duration_minutes": 10,
-    "active": true
-  }
+    "S1": {
+        "name": "Corte de pelo",
+        "category": "Peluqueria",
+        "price": 15.0,
+        "duration_minutes": 30,
+        "active": true
+    },
+    "bb212218-be4f-448b-85b2-a2ca69774e2d": {
+        "name": "Prueba",
+        "category": "Prueba",
+        "price": 10,
+        "duration_minutes": 10,
+        "active": true
+    },
+    "149b90b0-94d0-433b-9068-b4d81ea35b6a": {
+        "name": "Ba de color",
+        "category": "Tinte",
+        "price": 35,
+        "duration_minutes": 40,
+        "active": true
+    },
+    "4c43dbfe-4987-46ad-9631-77f6e2ac4d46": {
+        "name": "Permanente",
+        "category": "Tinte",
+        "price": 70,
+        "duration_minutes": 120,
+        "active": true
+    },
+    "799791d9-7915-43a0-9442-7568778ebafc": {
+        "name": "Mechas",
+        "category": "Tinte",
+        "price": 30,
+        "duration_minutes": 35,
+        "active": true
+    }
 }
