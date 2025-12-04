@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas Grupo 2 (Roy)</title>
+
+    <link rel="stylesheet" href="../styles/C_Roy.css">
+</head>
+ 
+<body>
+    <div id="navbar"></div>
+
+    <script>
+    // Carga la barra de navegación (asumiendo que está en una ruta relativa)
+    fetch("../../navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+    
+    <div class="main">
+        <h1>📊 Estadísticas Grupo 2 (Roy)</h1>
+
+        <button class="btn" onclick="loadStatsRoy()">Cargar Estadísticas Roy</button>
+
+        <div id="results_roy">
+            <p>Pulsa el botón para cargar los informes desde Python.</p>
+        </div>
+    </div>
+
+</body>
+<script src="../js/C_Roy.js"></script>
+</html>

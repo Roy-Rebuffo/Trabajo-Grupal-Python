@@ -1,0 +1,144 @@
+/* ===================================================
+   Estilos Generales y Tipografía
+   =================================================== */
+body {
+    /* Fuente moderna y fondo suave */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 30px; /* Aumento del padding general */
+    background: #f0f2f5; /* Fondo más suave (gris azulado claro) */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Contenedor principal: añade estructura y sombra */
+.main {
+    max-width: 1100px;
+    margin: 40px auto; /* Centrado y espaciado superior/inferior */
+    padding: 30px;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra más definida */
+    border-radius: 12px;
+}
+
+/* Títulos */
+h1 {
+    color: #1e3c72; /* Azul oscuro corporativo */
+    text-align: center;
+    border-bottom: 2px solid #f6c026; /* Línea de acento amarillo/oro */
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+}
+
+#results h2 {
+    margin-top: 35px;
+    color: #2a5298; /* Azul intermedio para subtítulos */
+    border-left: 4px solid #007bff;
+    padding-left: 10px;
+}
+
+/* Párrafos */
+p {
+    color: #555;
+    margin: 10px 0;
+}
+
+/* ===================================================
+   Botones
+   =================================================== */
+.btn {
+    /* Ajustes visuales para un aspecto 3D/moderno */
+    background: #007bff;
+    color: white;
+    padding: 14px 25px; /* Más espaciado */
+    font-size: 1.05em;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px; /* Borde más suave */
+    cursor: pointer;
+    margin-bottom: 25px;
+    transition: background 0.3s ease, transform 0.1s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra inicial */
+    display: block; /* Opcional: si quieres que ocupe todo el ancho */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn:hover {
+    background: #0056b3;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); /* Efecto sutil al pasar el ratón */
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ===================================================
+   Tablas (Mayor Legibilidad)
+   =================================================== */
+.table-container {
+    overflow-x: auto; /* Corrección de desbordamiento horizontal */
+    margin: 25px auto;
+    width: 90%; /* Ancho ligeramente mayor */
+}
+
+table {
+    width: 100%;
+    min-width: 600px; /* Mínimo para móviles */
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow: hidden; /* Para que el radio se aplique correctamente */
+}
+
+th, td {
+    padding: 10px 15px; /* Mayor densidad */
+    text-align: left; /* Alineación a la izquierda para datos */
+    border-bottom: 1px solid #e9ecef;
+    font-size: 0.95em;
+}
+
+th {
+    background: #2a5298; /* Azul intermedio */
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85em;
+}
+
+/* Filas alternas (Zebra) */
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: #eef2f5;
+}
+
+/* ===================================================
+   Gráficos y Pre-formato (Visualización de Resultados)
+   =================================================== */
+canvas {
+    display: block;
+    margin: 30px auto;
+    max-width: 100%; /* Totalmente responsivo */
+    height: auto !important;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+pre {
+    background: #e9ecef; /* Fondo ligeramente gris para el código/JSON */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Sombra interior sutil */
+    overflow-x: auto;
+    font-family: Consolas, monospace;
+    font-size: 0.9em;
+    border: 1px solid #dee2e6;
+}
