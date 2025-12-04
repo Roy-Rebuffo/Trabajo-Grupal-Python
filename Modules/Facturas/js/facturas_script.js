@@ -1,23 +1,46 @@
 let productosIndex = new Map();
+let serviciosIndex = new Map();
 
-//Mantener: cargar productos en el select al estar lista la API
+// Cargar datos al estar lista la API
 window.addEventListener("pywebviewready", async () => {
   try {
+    // Productos
     const productos = await pywebview.api.Facturas_get_productos();
-    console.log("Productos recibidos:", productos);
-
-    const select = document.getElementById("productoSelect");
-    select.innerHTML = "";
-
+    const selectProd = document.getElementById("productoSelect");
+    selectProd.innerHTML = "";
     productos.forEach(p => {
       const option = document.createElement("option");
       option.value = p.id;
       option.textContent = `${p.name} - ${p.price} EUR`;
-      select.appendChild(option);
-      productosIndex.set(p.id, p); // índice para lookup rápido por id
+      selectProd.appendChild(option);
+      productosIndex.set(p.id, p);
     });
 
-    const clientes = await pywebview.api.Facturas_get_clientes();
+    // Servicios
+    const servicios = await pywebview.api.services_getServices();
+    const selectServ = document.getElementById("servicioSelect");
+    selectServ.innerHTML = "";
+    Object.entries(servicios).forEach(([id, s]) => {
+      const option = document.createElement("option");
+      option.value = id;
+      option.textContent = `${s.name} - ${s.price} EUR`;
+      selectServ.appendChild(option);
+      serviciosIndex.set(id, s);
+    });
+
+    // Clientes
+    const clientesRaw = await pywebview.api.customers_GetCustomers();
+    const clientes = Array.isArray(clientesRaw)
+      ? clientesRaw
+      : Object.entries(clientesRaw).map(([id, c]) => ({
+          id,
+          name: c.name ?? "",
+          surname: c.surname ?? "",
+          email: c.email ?? "",
+          phone: c.phone ?? "",
+          city: c.city ?? ""
+        }));
+
     const selectCli = document.getElementById("clienteSelect");
     selectCli.innerHTML = "";
     clientes.forEach(c => {
@@ -27,46 +50,80 @@ window.addEventListener("pywebviewready", async () => {
       selectCli.appendChild(option);
     });
 
+    // Usuarios (empleados)
+    const usuariosRaw = await pywebview.api.users_cargar_usuarios();
+const usuarios = Array.isArray(usuariosRaw)
+  ? usuariosRaw
+  : Object.entries(usuariosRaw).map(([id, u]) => ({
+      id_usuario: id,
+      name: u.name ?? "",
+      surname: u.surname ?? ""
+    }));
+
+const selectUsu = document.getElementById("usuarioSelect");
+selectUsu.innerHTML = "";
+usuarios.forEach(u => {
+  const option = document.createElement("option");
+  option.value = u.id_usuario;
+  option.textContent = `${u.name} ${u.surname}`;
+  selectUsu.appendChild(option);
+});
+
+
+
   } catch (err) {
-    console.error("Error al cargar productos:", err);
+    console.error("Error al cargar datos:", err);
   }
 });
 
-//Añadir líneas a la tabla usando el producto seleccionado y la cantidad del input
-document.getElementById("addLinea").addEventListener("click", () => {
+// Añadir producto
+document.getElementById("addProducto").addEventListener("click", () => {
   const producto_id = document.getElementById("productoSelect").value;
-  const cantidadInput = document.getElementById("cantidad");
-  const cantidad = parseInt(cantidadInput.value || "1", 10);
-
-  if (!producto_id) return;
-  if (!Number.isFinite(cantidad) || cantidad <= 0) {
-    alert("Cantidad inválida"); 
-    return;
-  }
+  const cantidad = parseInt(document.getElementById("cantidadProducto").value || "1", 10);
+  if (!producto_id || cantidad <= 0) return;
 
   const p = productosIndex.get(producto_id);
-  if (!p) {
-    alert("Producto no encontrado");
-    return;
-  }
+  const importe = Number(p.price) * cantidad;
 
-  const tbody = document.getElementById("productosBody");
+  addLinea(producto_id, "producto", cantidad, p.price, importe);
+  document.getElementById("cantidadProducto").value = "1";
+});
+
+// Añadir servicio
+document.getElementById("addServicio").addEventListener("click", () => {
+  const servicio_id = document.getElementById("servicioSelect").value;
+  const cantidad = parseInt(document.getElementById("cantidadServicio").value || "1", 10);
+  if (!servicio_id || cantidad <= 0) return;
+
+  const s = serviciosIndex.get(servicio_id);
+  const importe = Number(s.price) * cantidad;
+
+  addLinea(servicio_id, "servicio", cantidad, s.price, importe);
+  document.getElementById("cantidadServicio").value = "1";
+});
+
+// Añadir fila a la tabla
+function addLinea(id_referencia, tipo, cantidad, precio_unitario, importe) {
+  const tbody = document.getElementById("itemsBody");
   const tr = document.createElement("tr");
-  tr.dataset.productoId = producto_id;
+  tr.dataset.idReferencia = id_referencia;
+  tr.dataset.tipo = tipo;
   tr.dataset.cantidad = String(cantidad);
+  tr.dataset.precio = String(precio_unitario);
 
-  //columnas: producto, cantidad, precio, importe, acción
-  const tdProducto = document.createElement("td");
-  tdProducto.textContent = p.name;
+  const tdRef = document.createElement("td");
+  tdRef.textContent = id_referencia;
+
+  const tdTipo = document.createElement("td");
+  tdTipo.textContent = tipo;
 
   const tdCantidad = document.createElement("td");
   tdCantidad.textContent = cantidad;
 
   const tdPrecio = document.createElement("td");
-  tdPrecio.textContent = `${Number(p.price).toFixed(2)} EUR`;
+  tdPrecio.textContent = `${Number(precio_unitario).toFixed(2)} EUR`;
 
   const tdImporte = document.createElement("td");
-  const importe = Number(p.price) * cantidad;
   tdImporte.textContent = `${importe.toFixed(2)} EUR`;
 
   const tdAccion = document.createElement("td");
@@ -76,32 +133,36 @@ document.getElementById("addLinea").addEventListener("click", () => {
   btnEliminar.onclick = () => tr.remove();
   tdAccion.appendChild(btnEliminar);
 
-  tr.appendChild(tdProducto);
+  tr.appendChild(tdRef);
+  tr.appendChild(tdTipo);
   tr.appendChild(tdCantidad);
   tr.appendChild(tdPrecio);
   tr.appendChild(tdImporte);
   tr.appendChild(tdAccion);
   tbody.appendChild(tr);
+}
 
-  cantidadInput.value = "1";
-});
-
-//Enviar la factura con todas las líneas agregadas en la tabla
+// Enviar factura
 document.getElementById("facturaForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const numero = document.getElementById("numero").value;
   const cliente_id = document.getElementById("clienteSelect").value;
-  const lineas = [];
+  const empleado_id = document.getElementById("usuarioSelect").value;
 
-  document.querySelectorAll("#productosBody tr").forEach(tr => {
-    const producto_id = tr.dataset.productoId;
+  const lineas = [];
+  document.querySelectorAll("#itemsBody tr").forEach(tr => {
+    const id_referencia = tr.dataset.idReferencia;
+    const tipo = tr.dataset.tipo;
     const cantidad = parseInt(tr.dataset.cantidad, 10);
-    lineas.push({ producto_id, cantidad });
+    const precio_unitario = parseFloat(tr.dataset.precio);
+    const total_linea = precio_unitario * cantidad;
+
+    lineas.push({ id_referencia, tipo, cantidad, precio_unitario, total_linea });
   });
 
   if (lineas.length === 0) {
-    alert("Añade al menos un producto antes de generar la factura.");
+    alert("Añade al menos un producto o servicio antes de generar la factura.");
     return;
   }
 
@@ -109,13 +170,17 @@ document.getElementById("facturaForm").addEventListener("submit", async (e) => {
     const result = await pywebview.api.Facturas_crear_factura(
       numero,
       cliente_id,
+      empleado_id,
       lineas,
       21,
       0
     );
 
     console.log("Factura generada:", result);
-    
+    document.getElementById("resultado").innerText =
+      "Factura generada:\n" + JSON.stringify(result.factura, null, 2) +
+      "\nPDF en: " + result.pdf;
+
   } catch (err) {
     console.error("Error al generar factura:", err);
     document.getElementById("resultado").innerText =

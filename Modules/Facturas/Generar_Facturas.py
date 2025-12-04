@@ -60,7 +60,7 @@ class Generar_Factura(FPDF):
         pdf.set_font("Arial", "", 10)
         for l in factura["lineas"]:
             importe = float(l["precio_unitario"]) * float(l["cantidad"])
-            pdf.cell(90, 8, l["nombre_producto"], 1)
+            pdf.cell(90, 8, l["nombre"], 1)
             pdf.cell(25, 8, str(l["cantidad"]), 1, align="C")
             pdf.cell(35, 8, f"{l['precio_unitario']:.2f} EUR", 1, align="R")
             pdf.cell(40, 8, f"{importe:.2f} EUR", 1, align="R")

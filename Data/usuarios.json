@@ -1,32 +1,32 @@
-[
-    {
-        "id_usuario": 1,
-        "nombre": "Enrique",
-        "apellido": "Diaz",
-        "email": "enrdiaz@gmail.com",
-        "telefono": "654789123",
-        "ciudad": "Sevilla",
-        "fecha_contrato": "2025-11-26",
-        "rol": "EMPLEADO"
-    },
-    {
-        "id_usuario": 2,
-        "nombre": "roy",
-        "apellido": "rebuffo",
-        "email": "roy34@gmail.com",
-        "telefono": "658741239",
-        "ciudad": "Madrid",
-        "fecha_contrato": "2025-11-05",
-        "rol": "EMPLEADO"
-    },
-    {
-        "id_usuario": 3,
-        "nombre": "Stalin",
-        "apellido": "Gonzales",
-        "email": "ssgonza@gmail.com",
-        "telefono": "456123741",
-        "ciudad": "Barcelona",
-        "fecha_contrato": "2025-10-08",
-        "rol": "EMPLEADO"
-    }
-]
+{
+  "U1": {
+    "name": "Enrique",
+    "surname": "Diaz",
+    "email": "enrdiaz@gmail.com",
+    "phone": "654789123",
+    "city": "Sevilla",
+    "fecha_contrato": "2025-11-26",
+    "rol": "EMPLEADO",
+    "active": true
+  },
+  "U2": {
+    "name": "roy",
+    "surname": "rebuffo",
+    "email": "roy34@gmail.com",
+    "phone": "658741239",
+    "city": "Madrid",
+    "fecha_contrato": "2025-11-05",
+    "rol": "EMPLEADO",
+    "active": true
+  },
+  "U3": {
+    "name": "Stalin",
+    "surname": "Gonzales",
+    "email": "ssgonza@gmail.com",
+    "phone": "456123741",
+    "city": "Barcelona",
+    "fecha_contrato": "2025-10-08",
+    "rol": "EMPLEADO",
+    "active": true
+  }
+}

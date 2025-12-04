@@ -11,13 +11,24 @@ from Modules.Facturas.Generar_Facturas import Generar_Factura
 #Ruta tanto de clientes como de productos
 ruta_clientes= "./Data/clientes.json"
 ruta_productos= "./Data/productos.json"
+ruta_servicios = "./Data/servicios.json"
 
 class Facturas:
-    def __init__(self, ruta_clientes= "./Data/clientes.json", ruta_productos= "./Data/productos.json"):
+    def __init__(self, ruta_clientes= "./Data/clientes.json", ruta_productos= "./Data/productos.json", ruta_servicios = "./Data/servicios.json"):
         self.ruta_clientes = ruta_clientes
         self.ruta_productos = ruta_productos
+        self.ruta_servicios = ruta_servicios
         self._clientes = None
         self._productos = None
+
+        
+
+    def servicios(self):
+        return self._cargar_json(ruta_servicios)
+
+    def buscar_servicio(self, servicio_id):
+        return self.servicios().get(servicio_id)
+
     
     def _cargar_json(self,ruta):
         #Carga el archivo JSON desde disco, si no existe devuelve la lista vacia
@@ -45,15 +56,34 @@ class Facturas:
     def lineas_facturas(self, lineas_solicitadas):
         lineas = []
         for ls in lineas_solicitadas:
-            p = self.buscar_productos(ls["producto_id"])
-            if not p: raise ValueError(f"Producto {ls['producto_id']} no encontrado")
+            tipo = ls.get("tipo")
+            ref = ls.get("id_referencia")
+            cantidad = int(ls.get("cantidad", 1))
+            precio = float(ls.get("precio_unitario", 0))
+    
+            if tipo == "producto":
+                p = self.buscar_productos(ref)
+                if not p:
+                    raise ValueError(f"Producto {ref} no encontrado")
+                nombre = p.get("name", "Producto")
+            elif tipo == "servicio":
+                s = self.buscar_servicio(ref)
+                if not s:
+                    raise ValueError(f"Servicio {ref} no encontrado")
+                nombre = s.get("name", "Servicio")
+            else:
+                raise ValueError(f"Tipo desconocido en línea: {tipo}")
+    
             lineas.append({
-                "producto_id": p["id"],
-                "nombre_producto": p["name"],
-                "precio_unitario": float(p["price"]),
-                "cantidad": int(ls["cantidad"]),
+                "id_referencia": ref,
+                "tipo": tipo,
+                "nombre": nombre,
+                "precio_unitario": precio,
+                "cantidad": cantidad,
+                "total_linea": round(precio * cantidad, 2)
             })
         return lineas
+
         
     #Calculo generales para los precios de la factura
     def calcular_totales(self, lineas, iva=21, descuento=0):
@@ -72,7 +102,7 @@ class Facturas:
             "descuento_porcentaje": descuento
         }
     
-    def crear_factura(self, numero, cliente_id, lineas_solicitadas, iva=21, descuento = 0):
+    def crear_factura(self, numero, cliente_id,empleado_id, lineas_solicitadas, iva=21, descuento = 0):
         cliente = self.buscar_cliente(cliente_id)
         if not cliente:
             raise ValueError(f"Cliente {cliente_id} no encontrado")
@@ -82,6 +112,7 @@ class Facturas:
             "numero": numero,
             "fecha": datetime.now().strftime("%Y-%m-%d"),
             "cliente_id": cliente_id,
+            "empleado_id":empleado_id,
             "cliente": {
                 "nombre": cliente.get("name"),
                 "apellido": cliente.get("surname"),
@@ -97,31 +128,48 @@ class Facturas:
 class M_Facturas:
     def __init__(self):
         self.facturas = Facturas()
+        self.ruta_facturas = "./Data/facturas.json"
 
     def get_productos(self):
         productos = self.facturas.productos()
         return [
-        {"id": p["id"], "name": p["name"], "price": p["price"]}
-        for p in productos.values()
+            {"id": p["id"], "name": p["name"], "price": p["price"]}
+            for p in productos.values()
         ]
 
     def get_clientes(self):
         clientes = self.facturas.clientes()
         return [
-        {
-            "id": cid,
-            "name": c.get("name", ""),
-            "surname": c.get("surname", ""),
-            "email": c.get("email", ""),
-            "phone": c.get("phone", ""),
-            "city": c.get("city", "")
-        }
-        for cid, c in clientes.items()
+            {
+                "id": cid,
+                "name": c.get("name", ""),
+                "surname": c.get("surname", ""),
+                "email": c.get("email", ""),
+                "phone": c.get("phone", ""),
+                "city": c.get("city", "")
+            }
+            for cid, c in clientes.items()
         ]
 
+    def crear_factura(self, numero, cliente_id, empleado_id, lineas, iva=21, descuento=0):
+        # Crear objeto factura
+        factura = self.facturas.crear_factura(numero, cliente_id, empleado_id, lineas, iva, descuento)
 
-    def crear_factura(self, numero, cliente_id, lineas, iva=21, descuento=0):
-        factura = self.facturas.crear_factura(numero, cliente_id, lineas, iva, descuento)
+        # Generar PDF
         ruta_pdf = Generar_Factura.generar_factura_pdf(factura)
-        return {"factura": factura, "pdf": ruta_pdf}
 
+        # Guardar en facturas.json
+        os.makedirs(os.path.dirname(self.ruta_facturas), exist_ok=True)
+        if os.path.exists(self.ruta_facturas):
+            with open(self.ruta_facturas, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        else:
+            data = {}
+
+        # Usar el número de factura como clave
+        data[factura["numero"]] = factura
+
+        with open(self.ruta_facturas, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
+
+        return {"factura": factura, "pdf": ruta_pdf}

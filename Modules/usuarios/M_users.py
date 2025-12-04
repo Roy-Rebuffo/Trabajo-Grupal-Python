@@ -36,45 +36,53 @@ class M_users:
             "rol": self.rol
         }
     
-def guardar_usuario(usuario, ruta="usuarios.json"):
+    def guardar_usuario(self,usuario, ruta="usuarios.json"):
 
-    # Crear si no existe
-    carpeta = os.path.dirname(ruta)
-    if carpeta and not os.path.exists(carpeta):
-         os.makedirs(carpeta)
+        # Crear si no existe
+        carpeta = os.path.dirname(ruta)
+        if carpeta and not os.path.exists(carpeta):
+             os.makedirs(carpeta)
 
-    try:
-        with open(ruta, "r") as f:
+        try:
+            with open(ruta, "r") as f:
+                data = json.load(f)
+        except FileExistsError:
+                data = []
+
+        data.append(usuario.to_dict())
+
+        with open(ruta, "w") as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
+
+        messagebox.showinfo("ÉXITO", f"Usuario {usuario.nombre} se ha guardado correctamente.")
+
+    def cargar_usuarios(self):
+        if not os.path.exists(ruta):
+            return []
+        with open(ruta, "r", encoding="utf-8") as f:
             data = json.load(f)
-    except FileExistsError:
-            data = []
+        # Si es dict (como {"U1": {...}, "U2": {...}}), conviértelo a lista
+        if isinstance(data, dict):
+            usuarios = []
+            for uid, u in data.items():
+                u["id_usuario"] = uid  # añade la clave como id_usuario
+                usuarios.append(u)
+            return usuarios
+        print(data)
+        return data
+    
 
-    data.append(usuario.to_dict())
+    def guardar_usuario(self,usuario_dict):
+        usuarios = self.cargar_usuarios()
+        nuevo_id = len(usuarios) + 1
+        usuario = M_users(id_usuario=nuevo_id, **usuario_dict)
+        usuarios.append(usuario.to_dict())
 
-    with open(ruta, "w") as f:
-        json.dump(data, f, indent=4, ensure_ascii=False)
-
-    messagebox.showinfo("ÉXITO", f"Usuario {usuario.nombre} se ha guardado correctamente.")
-
-def cargar_usuarios():
-    if not os.path.exists(ruta):
-         return []
-    with open(ruta, "r") as f:
-        return json.load(f)
-        
-def guardar_usuario(usuario_dict):
-    usuarios = cargar_usuarios()
-    nuevo_id = len(usuarios) + 1
-    usuario = M_users(id_usuario=nuevo_id, **usuario_dict)
-    usuarios.append(usuario.to_dict())
-
-    os.makedirs(os.path.dirname(ruta), exist_ok=True)
-    with open(ruta, "w") as f:
-        json.dump(usuarios, f, indent=4, ensure_ascii=False)
-
-class Api:
+        os.makedirs(os.path.dirname(ruta), exist_ok=True)
+        with open(ruta, "w") as f:
+            json.dump(usuarios, f, indent=4, ensure_ascii=False)
     def agregar_usuario(self, usuario_dict):
-        guardar_usuario(usuario_dict)
+        self.guardar_usuario(usuario_dict)
         return "OK"
 
 
