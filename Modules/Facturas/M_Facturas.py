@@ -3,11 +3,12 @@
 
 
 import json
+import uuid
 import os
 from datetime import datetime
 from decimal import Decimal, ROUND_HALF_UP
 from Modules.Facturas.Generar_Facturas import Generar_Factura
-
+from Modules.customers.M_Customers import M_Customers
 #Ruta tanto de clientes como de productos
 ruta_clientes= "./Data/clientes.json"
 ruta_productos= "./Data/productos.json"
@@ -102,12 +103,16 @@ class Facturas:
             "descuento_porcentaje": descuento
         }
     
-    def crear_factura(self, numero, cliente_id,empleado_id, lineas_solicitadas, iva=21, descuento = 0):
+    def crear_factura(self, cliente_id, empleado_id, lineas_solicitadas, iva=21, descuento=0):
+        numero = f"FAC-{str(uuid.uuid4())[:8]}"  # Genera número    único automático
+
         cliente = self.buscar_cliente(cliente_id)
         if not cliente:
             raise ValueError(f"Cliente {cliente_id} no encontrado")
+
         lineas = self.lineas_facturas(lineas_solicitadas)
         totales = self.calcular_totales(lineas, iva, descuento)
+
         return {
             "numero": numero,
             "fecha": datetime.now().strftime("%Y-%m-%d"),
@@ -122,8 +127,8 @@ class Facturas:
             },
             "lineas": lineas,
             "totales": totales
+        }
 
-        }  
 
 class M_Facturas:
     def __init__(self):
@@ -151,9 +156,9 @@ class M_Facturas:
             for cid, c in clientes.items()
         ]
 
-    def crear_factura(self, numero, cliente_id, empleado_id, lineas, iva=21, descuento=0):
+    def crear_factura(self, cliente_id, empleado_id, lineas, iva=21, descuento=0):
         # Crear objeto factura
-        factura = self.facturas.crear_factura(numero, cliente_id, empleado_id, lineas, iva, descuento)
+        factura = self.facturas.crear_factura( cliente_id, empleado_id, lineas, iva, descuento)
 
         # Generar PDF
         ruta_pdf = Generar_Factura.generar_factura_pdf(factura)
@@ -167,7 +172,10 @@ class M_Facturas:
             data = {}
 
         # Usar el número de factura como clave
+        del factura["cliente"]
         data[factura["numero"]] = factura
+        M_customers=M_Customers()
+        M_customers.add_invoice(cliente_id,factura["numero"])
 
         with open(self.ruta_facturas, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)

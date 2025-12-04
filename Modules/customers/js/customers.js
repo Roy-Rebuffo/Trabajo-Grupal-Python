@@ -6,7 +6,7 @@ let customerData =  {
     "email": "",
     "phone": null,
     "active": false,
-    "pucharses_amount": 0,
+    "purchases_amount": 0,
     "total_spent": 0.0,
 };
 
@@ -72,7 +72,7 @@ function RefrescarClientes() {
                             <p><strong>Email:</strong> ${customer.email}</p>
                             <p><strong>Teléfono:</strong> ${customer.phone || ''}</p>
                             <p><strong>Activo:</strong> ${customer.active ? "Sí" : "No"}</p>
-                            <p><strong>Cantidad de compras:</strong> ${customer.pucharses_amount}</p>
+                            <p><strong>Cantidad de compras:</strong> ${customer.purchases_amount}</p>
                             <p><strong>Total gastado:</strong> ${customer.total_spent}€</p>
                         </div>
                     </div>
@@ -93,7 +93,7 @@ function RefrescarClientes() {
                         <p><strong>Email:</strong> ${customer.email}</p>
                         <p><strong>Teléfono:</strong> ${customer.phone || ''}</p>
                         <p><strong>Activo:</strong> ${customer.active ? "Sí" : "No"}</p>
-                        <p><strong>Cantidad de compras:</strong> ${customer.pucharses_amount}</p>
+                        <p><strong>Cantidad de compras:</strong> ${customer.purchases_amount}</p>
                         <p><strong>Total gastado:</strong> ${customer.total_spent}€</p>
                     </div>
                 </div>

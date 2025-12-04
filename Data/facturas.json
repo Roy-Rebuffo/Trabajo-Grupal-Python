@@ -1,16 +1,42 @@
 {
-    "14": {
-        "numero": "14",
+    "FAC-e9ef86ef": {
+        "numero": "FAC-e9ef86ef",
         "fecha": "2025-12-04",
         "cliente_id": "ID2",
         "empleado_id": "U1",
-        "cliente": {
-            "nombre": "Rafael",
-            "apellido": "González",
-            "email": "rafa@gmail.com ",
-            "telefono": "600123456",
-            "ciudad": "Madrid"
-        },
+        "lineas": [
+            {
+                "id_referencia": "PR-0001",
+                "tipo": "producto",
+                "nombre": "Kativa",
+                "precio_unitario": 15.95,
+                "cantidad": 1,
+                "total_linea": 15.95
+            },
+            {
+                "id_referencia": "S1",
+                "tipo": "servicio",
+                "nombre": "Corte de pelo",
+                "precio_unitario": 15.0,
+                "cantidad": 1,
+                "total_linea": 15.0
+            }
+        ],
+        "totales": {
+            "subtotal": 30.95,
+            "descuento": 0.0,
+            "base": 30.95,
+            "iva": 6.5,
+            "total": 37.45,
+            "iva_porcentaje": 21,
+            "descuento_porcentaje": 0
+        }
+    },
+    "FAC-5be3f9a7": {
+        "numero": "FAC-5be3f9a7",
+        "fecha": "2025-12-04",
+        "cliente_id": "ID2",
+        "empleado_id": "U1",
         "lineas": [
             {
                 "id_referencia": "PR-0001",

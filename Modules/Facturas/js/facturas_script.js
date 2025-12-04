@@ -146,7 +146,6 @@ function addLinea(id_referencia, tipo, cantidad, precio_unitario, importe) {
 document.getElementById("facturaForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const numero = document.getElementById("numero").value;
   const cliente_id = document.getElementById("clienteSelect").value;
   const empleado_id = document.getElementById("usuarioSelect").value;
 
@@ -168,7 +167,6 @@ document.getElementById("facturaForm").addEventListener("submit", async (e) => {
 
   try {
     const result = await pywebview.api.Facturas_crear_factura(
-      numero,
       cliente_id,
       empleado_id,
       lineas,

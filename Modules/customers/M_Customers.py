@@ -26,9 +26,15 @@ class M_Customers:
         Methods.Delete("Data/clientes.json", customer_id)
 
     def updateCustomer(self,customer_id, new_data):
-        Methods.update("Data/clientes.json", customer_id, new_data)
+        Methods.Update("Data/clientes.json", customer_id, new_data)
+    
+    def add_invoice(self,customer_id,numero_invoice):
+        customer=self.GetCustomerById(customer_id)
+        customer["invoices"].append(numero_invoice)
+        self.updateCustomer(customer_id,customer)
 
     def AddCustomer(self,customer_data):
+        customer_data["invoices"]=[]
         Methods.AddOne("Data/clientes.json", customer_data)
 
     def GetCustomerById(self,customer_id):
