@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas Roy</title>
+
+    <link rel="stylesheet" href="../styles/C_Roy.css"> 
+</head>
+ 
+<body>
+    <div id="navbar"></div>
+
+    <script>
+      // Cargar el navbar desde el archivo compartido
+      fetch("../../navbar.html") 
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+    
+    <div class="main">
+        <h1>📊 Estadísticas Roy (Grupo 2)</h1>
+
+        <button class="btn" onclick="loadStatsRoy()">Cargar Informes</button>
+
+        <div id="results_roy">
+            <p>Presiona "Cargar Informes" para obtener los datos del ERP.</p>
+        </div>
+    </div>
+
+</body>
+<script src="../js/C_Roy.js"></script>
+</html>
