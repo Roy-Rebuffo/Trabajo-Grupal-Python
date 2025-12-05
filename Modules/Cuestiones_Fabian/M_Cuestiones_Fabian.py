@@ -13,16 +13,15 @@ class M_cuestiones_Fabian:
         self.m_services = M_Services()
         self.clientes = self.m_customers.GetCustomers()
 
-    # Función auxiliar para obtener nombre completo
+    # Funcion  para obtener nombre completo
     def nombre_completo(self, cid):
         cliente = self.clientes.get(cid)
         if cliente:
             return f"{cliente['name']} {cliente['surname']}"
         return "Desconocido"
 
-    # -----------------------------
-    # 1. Clientes que más han gastado
-    # -----------------------------
+    # 1. Clientes que mas han gastado
+
     def top_clientes_por_gasto(self, limit=10):
         facturas = self.m_facturas.obtener_facturas()
         gasto_por_cliente = {}
@@ -31,7 +30,7 @@ class M_cuestiones_Fabian:
             cid = factura["cliente_id"]
             total = factura["totales"]["total"]
             gasto_por_cliente[cid] = gasto_por_cliente.get(cid, 0) + total
-
+        #esto retorna una lista de tuplas (cliente_id, nombre_completo, total_gastado)
         ranking = sorted(gasto_por_cliente.items(), key=lambda x: x[1], reverse=True)
         return [(cid, self.nombre_completo(cid), total) for cid, total in ranking[:limit]]
 
