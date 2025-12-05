@@ -5,24 +5,17 @@
 <title>Estadísticas Mar</title>
 <link rel="stylesheet" href="styles.css">
 </head>
-<style>
-    canvas {
-    display: block;
-    margin: 25px auto;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-}
-table {
-    margin: 15px auto;
-    border-collapse: collapse;
-    width: 80%;
-}
-th, td {
-    padding: 6px 10px;
-    text-align: center;
-}
-</style>
+<link rel="stylesheet" href="styles.css">
 <body>
+    <div id="navbar"></div>
+
+    <script>
+      fetch("../../navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
 
 <h1>Estadísticas Mar</h1>
  <button class="btn" onclick="loadStats()">Cargar Estadísticas</button>
