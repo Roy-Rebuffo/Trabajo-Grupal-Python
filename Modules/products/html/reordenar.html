@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reordenar Inventario</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Usaremos un archivo CSS personalizado para los estilos de la lista -->
+    <link rel="stylesheet" href="../styles/reordenar.css"> 
+    <style>
+        /* Estilos básicos para la lista de reordenamiento */
+        .reorder-list-display {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .product-grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        .product-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .product-item:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.85em;
+        }
+        .product-id {
+            color: #777;
+        }
+        .product-stock {
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #fff;
+        }
+        .stock-low { background-color: #e74c3c; } /* Rojo */
+        .stock-medium { background-color: #f39c12; } /* Amarillo/Naranja */
+        .stock-high { background-color: #2ecc71; } /* Verde */
+        .reorder-flag {
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #c0392b;
+            background-color: #fdedec;
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: 1px solid #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1 id="reorder-title">⬆️ Reordenar Inventario</h1>
+            <p>Genera una lista de pedidos de reabastecimiento basada en las necesidades de stock.</p>
+        </header>
+
+        <button class="action-btn btn-back" onclick="window.location.href='landing.html'">
+            <span class="btn-icon">⬅️</span> Volver al Dashboard
+        </button>
+
+        <div class="form-card reorder-card">
+            <h2>Generar Pedido de Reabastecimiento</h2>
+            <p>El sistema mostrará los productos ordenados por stock de **menor a mayor**.</p>
+            
+            <!-- AÑADIMOS EL ID PARA EL JS -->
+            <button type="button" id="generate-btn" class="form-btn generate-reorder-btn">📄 Generar Lista de Pedido</button>
+            
+            <hr>
+
+            <h2>Lista de Reabastecimiento Sugerida</h2>
+            <div id="reorder-list" class="reorder-list-display">
+                <p class="loading">Presiona el botón para generar la lista.</p>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- Cargamos el nuevo script -->
+<script src="../js/reordenar.js"></script>
+</html>

@@ -1,0 +1,80 @@
+{
+    "ID1": {
+        "name": "John",
+        "surname": "Doe",
+        "age": 28,
+        "city": "New York",
+        "email": "john.doe@example.com",
+        "phone": "123456789",
+        "active": true,
+        "purchases_amount": 3,
+        "total_spent": 120.5,
+        "invoices": [
+            "1",
+            "5",
+            "9",
+            "FAC-6318a337"
+        ]
+    },
+    "ID2": {
+        "name": "Jane",
+        "surname": "Smith",
+        "age": 32,
+        "city": "Los Angeles",
+        "email": "jane.smith@example.com",
+        "phone": "987654321",
+        "active": true,
+        "purchases_amount": 5,
+        "total_spent": 250.75,
+        "invoices": [
+            "2",
+            "6",
+            "10"
+        ]
+    },
+    "ID3": {
+        "name": "Mike",
+        "surname": "Brown",
+        "age": 40,
+        "city": "Chicago",
+        "email": "mike.brown@example.com",
+        "phone": "555666777",
+        "active": true,
+        "purchases_amount": 2,
+        "total_spent": 90.0,
+        "invoices": [
+            "3",
+            "7"
+        ]
+    },
+    "ID4": {
+        "name": "Emily",
+        "surname": "Davis",
+        "age": 25,
+        "city": "Miami",
+        "email": "emily.davis@example.com",
+        "phone": "111222333",
+        "active": true,
+        "purchases_amount": 4,
+        "total_spent": 180.2,
+        "invoices": [
+            "4",
+            "8",
+            "11"
+        ]
+    },
+    "ID5": {
+        "name": "David",
+        "surname": "Wilson",
+        "age": 35,
+        "city": "Seattle",
+        "email": "david.wilson@example.com",
+        "phone": "444555666",
+        "active": true,
+        "purchases_amount": 1,
+        "total_spent": 45.0,
+        "invoices": [
+            "12"
+        ]
+    }
+}

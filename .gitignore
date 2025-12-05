@@ -1,0 +1,37 @@
+# --- ENTORNOS VIRTUALES ---
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# --- PYTHON CACHE ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# --- CONFIGURACIONES DE INTÉRPRETE ---
+*.python-version
+
+# --- DIRECTORIOS DE PYINSTALLER ---
+build/
+dist/
+*.spec
+
+# --- ARCHIVOS TEMPORALES ---
+*.log
+*.tmp
+*.bak
+
+# --- CONFIGURACIONES DE EDITORES ---
+# VSCode
+.vscode/
+# Pycharm / JetBrains
+.idea/
+
+# --- SISTEMA ---
+.DS_Store
+Thumbs.db

@@ -1,0 +1,85 @@
+/* Fuente y colores generales */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f4f6f9;
+  margin: 20px auto;
+  color: #333;
+}
+
+/* Títulos */
+h1, h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+/* Formularios */
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+/* Inputs y selects */
+input[type="text"],
+input[type="number"],
+select {
+  padding: 8px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+}
+
+/* Botones */
+button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.env{
+    margin-top: 20px;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Tabla de productos */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+table th {
+  background-color: #3498db;
+  color: white;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Resultado */
+#resultado {
+  background: #eef;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 6px;
+  font-family: monospace;
+  white-space: pre-wrap;
+}

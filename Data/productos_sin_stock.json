@@ -1,0 +1,9 @@
+{
+    "PR-0004": {
+        "name": "Prueba",
+        "description": "prueba",
+        "price": 100,
+        "stock": 0,
+        "id": "PR-0004"
+    }
+}

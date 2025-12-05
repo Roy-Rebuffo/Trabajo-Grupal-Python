@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Manager</title>
+
+    <link rel="stylesheet" href="../services.css>
+    <link rel="stylesheet" href="../../../style.css"> </head>
+<body>
+    <div id="navbar"></div>
+
+    <script>
+      fetch("../../navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+    
+    <h1>Servicios - Admin</h1>
+
+    <div class="section">
+        <h2>📊 Estadisticas</h2>
+        <ul>
+            <li>Servicios totales: <span id="stats_total_services">0</span></li>
+            <li>Servicios activos: <span id="stats_active_services">0</span></li>
+            <li>Precio medio:  <span id="stats_avg_price">0.00 €</span></li>
+            <li>Duración media: <span id="stats_avg_duration">0 min</span></li>
+        </ul>
+
+        <h3>Count by Category:</h3>
+        <ul id="stats_categories">
+            </ul>
+    </div>
+
+    <hr>
+
+    <div class="section">
+        <h2>Filters</h2>
+        
+        <div class="filter-controls">
+            <div class="filter-item">
+                <label for="filter_category">Filter by category:</label>
+                <input type="text" id="filter_category" placeholder="Ej: peluqueria (sin acentos)">
+            </div>
+
+            <div class="filter-item">
+                <label for="filter_sort">Ordenar por:</label>
+                <select id="filter_sort">
+                    <option value="">None</option>
+                    <option value="duration">Duracion (minutes)</option>
+                    <option value="price">Precio</option>
+                    <option value="name">Nombre (A-Z)</option>
+                </select>
+            </div>
+
+            <button onclick="filterServices()">Aplicar filtros</button>
+        </div>
+    </div>
+    
+    <hr>
+
+    <div class="section">
+        <h2>Servicios disponibles</h2>
+        <table id="services_table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Categoria</th>
+                    <th>Precio (€)</th>
+                    <th>Duracion</th>
+                    <th>Activo</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                </tbody>
+        </table>
+    </div>
+
+    <hr>
+
+    <div class="section">
+        <h2>Añadir nuevo servicio</h2>
+
+        <div class="form-group">
+            <label>Nombre:</label>
+            <input type="text" id="s_name">
+
+            <label>Categoria:</label>
+            <input type="text" id="s_category">
+
+            <label>Precio (€):</label>
+            <input type="number" id="s_price" step="0.01">
+
+            <label>Duracion (minutos):</label>
+            <input type="number" id="s_duration">
+
+            <label>Activo:</label>
+            <input type="checkbox" id="s_active">
+
+            <button onclick="SendServiceData()">Añadir Servicio</button>
+        </div>
+    </div>
+
+<script src="../services.js"></script>
+</body>
+</html>

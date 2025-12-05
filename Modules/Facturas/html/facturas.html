@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/facturas_style.css">
+    <title>Document</title>
+</head>
+<body>
+  <div id="navbar"></div>
+
+    <script>
+      fetch("../../navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+
+  <h1>Generar Factura</h1>
+  <form id="facturaForm">
+    <label>ID Cliente:</label>
+    <select id="clienteSelect"></select><br>
+
+    <label>ID Usuario (Empleado):</label>
+    <select id="usuarioSelect"></select><br>
+
+    <h3>Seleccionar producto</h3>
+    <select id="productoSelect"></select>
+    <input type="number" id="cantidadProducto" value="1" min="1">
+    <button type="button" id="addProducto">Añadir producto</button>
+
+    <h3>Seleccionar servicio</h3>
+    <select id="servicioSelect"></select>
+    <input type="number" id="cantidadServicio" value="1" min="1">
+    <button type="button" id="addServicio">Añadir servicio</button>
+
+    <h3>Items añadidos</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Referencia</th>
+          <th>Tipo</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Importe</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody id="itemsBody"></tbody>
+    </table>
+
+    <button class="env" type="submit">Generar Factura</button>
+  </form>
+
+  <pre id="resultado"></pre>
+</body>
+<!-- JS externo -->
+<script src="../js/facturas_script.js"></script>
+</html>

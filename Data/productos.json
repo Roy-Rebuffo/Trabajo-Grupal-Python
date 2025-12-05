@@ -1,0 +1,42 @@
+{
+  "PR-0001": {
+    "id": "PR-0001",
+    "name": "Shampoo",
+    "description": "Shampoo para cabello",
+    "price": 12.00,
+    "stock": 20,
+    "active": true
+  },
+  "PR-0002": {
+    "id": "PR-0002",
+    "name": "Hair Gel",
+    "description": "Gel para peinar",
+    "price": 8.50,
+    "stock": 30,
+    "active": true
+  },
+  "PR-0003": {
+    "id": "PR-0003",
+    "name": "Beard Oil",
+    "description": "Aceite para barba",
+    "price": 15.00,
+    "stock": 15,
+    "active": true
+  },
+  "PR-0004": {
+    "id": "PR-0004",
+    "name": "Comb",
+    "description": "Peine profesional",
+    "price": 5.00,
+    "stock": 50,
+    "active": true
+  },
+  "PR-0005": {
+    "id": "PR-0005",
+    "name": "Scissors",
+    "description": "Tijeras de peluqueria",
+    "price": 25.00,
+    "stock": 10,
+    "active": true
+  }
+}

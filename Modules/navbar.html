@@ -1,0 +1,127 @@
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">ERP</div>
+        <div class="nav-toggle" id="nav-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+           <li><a href="../../../index.html">Inicio</a></li>
+        <li><a href="../../products/html/landing.html">Productos</a></li>
+        <li><a href="../../services/html/services_module.html">Servicios</a></li>
+        <li><a href="../../Facturas/html/facturas.html">Factura</a></li>
+        <li><a href="../../customers/html/customers_module.html">Clientes/Proveedores</a></li>
+        <li><a href="../../usuarios/html/users_module.html">Empleados</a></li>
+        <li><a href="../../Cuestiones_Fabian/html/C_Fabian.html">Fabian</a></li>
+        <li><a href="../../Cuestiones_Roy/html/C_Roy.html">Roy</a></li>
+        <li><a href="../../Cuestiones_Mar/templates/C_Mar.html">Mar</a></li>
+        <li><a href="../../Cuestiones_Rafael/html/estadisticas_rafael.html">Rafael</a></li>
+        </ul>
+    </div>
+</nav>
+
+<style>
+:root {
+    --primary: #0a4fa3;
+    --primary-light: #e7f0ff;
+    --text: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+.navbar {
+    width: 100%;
+    background: var(--primary);
+    color: var(--text);
+    z-index: 100;
+    position: fixed;
+    top: 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    flex-wrap: nowrap; /* mantener en una fila para scroll */
+
+}
+
+.nav-logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-right: 1rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto; /* permite scroll horizontal */
+    flex-wrap: nowrap;
+    scrollbar-width: none; /* Firefox */
+}
+
+.nav-links::-webkit-scrollbar {
+    height: 6px;
+}
+
+.nav-links::-webkit-scrollbar-thumb {
+    background: #ffffff50;
+    border-radius: 3px;
+}
+
+.nav-links li a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.nav-links li a:hover {
+    color: var(--primary-light);
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* Responsive: ≤600px */
+@media screen and (max-width: 600px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        margin-top: 10px;
+        gap: 10px;
+        background: var(--primary);
+        border-top: 1px solid var(--primary-light);
+        padding: 10px 0;
+        overflow-x: hidden;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}
+</style>
+
+<script>
+const toggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
+
+toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+});
+</script>
