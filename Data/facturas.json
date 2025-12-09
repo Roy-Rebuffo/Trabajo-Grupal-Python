@@ -139,5 +139,103 @@
             "iva_porcentaje": 21,
             "descuento_porcentaje": 0
         }
+    },
+    "FAC-41df104e": {
+        "numero": "FAC-41df104e",
+        "fecha": "2025-12-05",
+        "cliente_id": "ID1",
+        "empleado_id": "U1",
+        "lineas": [
+            {
+                "id_referencia": "PR-0001",
+                "tipo": "producto",
+                "nombre": "Shampoo",
+                "precio_unitario": 12.0,
+                "cantidad": 1,
+                "total_linea": 12.0
+            },
+            {
+                "id_referencia": "S1",
+                "tipo": "servicio",
+                "nombre": "Corte de pelo",
+                "precio_unitario": 15.0,
+                "cantidad": 1,
+                "total_linea": 15.0
+            },
+            {
+                "id_referencia": "4c43dbfe-4987-46ad-9631-77f6e2ac4d46",
+                "tipo": "servicio",
+                "nombre": "Permanente",
+                "precio_unitario": 70.0,
+                "cantidad": 1,
+                "total_linea": 70.0
+            }
+        ],
+        "totales": {
+            "subtotal": 97.0,
+            "descuento": 0.0,
+            "base": 97.0,
+            "iva": 20.37,
+            "total": 117.37,
+            "iva_porcentaje": 21,
+            "descuento_porcentaje": 0
+        }
+    },
+    "FAC-2fb6b298": {
+        "numero": "FAC-2fb6b298",
+        "fecha": "2025-12-05",
+        "cliente_id": "ID3",
+        "empleado_id": "U2",
+        "lineas": [
+            {
+                "id_referencia": "PR-0001",
+                "tipo": "producto",
+                "nombre": "Shampoo",
+                "precio_unitario": 12.0,
+                "cantidad": 1,
+                "total_linea": 12.0
+            },
+            {
+                "id_referencia": "S1",
+                "tipo": "servicio",
+                "nombre": "Corte de pelo",
+                "precio_unitario": 15.0,
+                "cantidad": 1,
+                "total_linea": 15.0
+            },
+            {
+                "id_referencia": "149b90b0-94d0-433b-9068-b4d81ea35b6a",
+                "tipo": "servicio",
+                "nombre": "Ba de color",
+                "precio_unitario": 35.0,
+                "cantidad": 1,
+                "total_linea": 35.0
+            },
+            {
+                "id_referencia": "bb212218-be4f-448b-85b2-a2ca69774e2d",
+                "tipo": "servicio",
+                "nombre": "Prueba",
+                "precio_unitario": 10.0,
+                "cantidad": 1,
+                "total_linea": 10.0
+            },
+            {
+                "id_referencia": "PR-0002",
+                "tipo": "producto",
+                "nombre": "Hair Gel",
+                "precio_unitario": 8.5,
+                "cantidad": 1,
+                "total_linea": 8.5
+            }
+        ],
+        "totales": {
+            "subtotal": 80.5,
+            "descuento": 0.0,
+            "base": 80.5,
+            "iva": 16.91,
+            "total": 97.41,
+            "iva_porcentaje": 21,
+            "descuento_porcentaje": 0
+        }
     }
 }

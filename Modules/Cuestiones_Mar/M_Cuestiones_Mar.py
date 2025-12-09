@@ -89,7 +89,7 @@ class M_Cuestiones_Mar:
         return dict(gasto)
 
     # -----------------------------
-    # 5. Retorno de clientes
+    # 5. Retorno de clientes 
     # -----------------------------
     def retorno_clientes(self):
         conteo = defaultdict(lambda: defaultdict(int))
